@@ -5,19 +5,21 @@
   
 
   
-  <title>NSString 移除所有非数字字符 保留空格 | MrLong的博客</title>
+  <title>Mac 桌面切换 | MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
+  <meta name="description" content="桌面切换快捷键设置：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NSString 移除所有非数字字符 保留空格">
-<meta property="og:url" content="http://yoursite.com/2017/12/21/我的第一篇博客/index.html">
+<meta property="og:title" content="Mac 桌面切换">
+<meta property="og:url" content="http://yoursite.com/2017/12/23/桌面切换快捷键/index.html">
 <meta property="og:site_name" content="MrLong的博客">
-<meta property="og:description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
+<meta property="og:description" content="桌面切换快捷键设置：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-23T01:27:06.712Z">
+<meta property="og:image" content="http://yoursite.com/public/css/images/zuomiankjj.png">
+<meta property="og:updated_time" content="2017-12-23T04:15:04.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NSString 移除所有非数字字符 保留空格">
-<meta name="twitter:description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
+<meta name="twitter:title" content="Mac 桌面切换">
+<meta name="twitter:description" content="桌面切换快捷键设置：">
+<meta name="twitter:image" content="http://yoursite.com/public/css/images/zuomiankjj.png">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -64,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-桌面切换快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/21/我的第一篇博客/" class="article-date">
-  <time datetime="2017-12-21T09:40:18.983Z" itemprop="datePublished">2017-12-21</time>
+    <a href="/2017/12/23/桌面切换快捷键/" class="article-date">
+  <time datetime="2017-12-23T04:07:59.827Z" itemprop="datePublished">2017-12-23</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      NSString 移除所有非数字字符 保留空格
+      Mac 桌面切换
     </h1>
   
 
@@ -86,17 +88,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@<span class="string">"0123456789 "</span>]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@<span class="string">"”];</span></span><br></pre></td></tr></table></figure>
-<p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
-<p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
-<h3 id="NSCharacterSet、NSMutableCharacterSet"><a href="#NSCharacterSet、NSMutableCharacterSet" class="headerlink" title="NSCharacterSet、NSMutableCharacterSet"></a>NSCharacterSet、NSMutableCharacterSet</h3><p>1、用面向对象的方式来表示一组Unicode字符。<br>2、它经常与NSString及NSScanner组合起来使用，<font color="red">在不同的字符上做过滤、删除或者分割操作</font>。<br>3、NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
-<p>学习链接：<br><a href="http://blog.csdn.net/longshihua/article/details/50468910" target="_blank" rel="noopener">http://blog.csdn.net/longshihua/article/details/50468910</a></p>
-<p><a href="http://blog.csdn.net/zhongad007/article/details/77834341" target="_blank" rel="noopener">http://blog.csdn.net/zhongad007/article/details/77834341</a></p>
+        <p>桌面切换快捷键设置：</p>
+<p><img src="/public/css/images/zuomiankjj.png" alt="快捷键"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbiu0h6r00039wqmveookfkt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbiu0h6p00029wqmuqe6l67q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/21/搭建博客过程记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          搭建博客过程记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/23/键盘遮挡问题/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">键盘遮挡问题</div>
     </a>
   
 </nav>
