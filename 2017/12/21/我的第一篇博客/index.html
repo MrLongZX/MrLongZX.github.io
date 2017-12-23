@@ -7,17 +7,17 @@
   
   <title>NSString 移除所有非数字字符 保留空格 | MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@”0123456789 “] invertedSet ]; NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove] c">
+  <meta name="description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSString 移除所有非数字字符 保留空格">
 <meta property="og:url" content="http://yoursite.com/2017/12/21/我的第一篇博客/index.html">
 <meta property="og:site_name" content="MrLong的博客">
-<meta property="og:description" content="NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@”0123456789 “] invertedSet ]; NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove] c">
+<meta property="og:description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-21T11:58:20.405Z">
+<meta property="og:updated_time" content="2017-12-23T01:11:06.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSString 移除所有非数字字符 保留空格">
-<meta name="twitter:description" content="NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@”0123456789 “] invertedSet ]; NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove] c">
+<meta name="twitter:description" content="12345NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;] invertedSet ];NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemov">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -86,8 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@”0123456789 “]<br> invertedSet ];</p>
-<p>NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]<br> componentsJoinedByString:@””];</p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@<span class="string">"0123456789 "</span>]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@<span class="string">"”];</span></span><br></pre></td></tr></table></figure>
 <p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
 <p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
 <p>NSCharacterSet :以及它的可变版本NSMutableCharacterSet，用面向对象的方式来表示一组Unicode字符。<br>它经常与NSString及NSScanner组合起来使用，在不同的字符上做过滤、删除或者分割操作。NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
@@ -97,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbgfocki00028oqm77f5kpsg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbingj7j0002srkseax7zkeq" class="article-share-link">Teilen</a>
       
       
     </footer>
