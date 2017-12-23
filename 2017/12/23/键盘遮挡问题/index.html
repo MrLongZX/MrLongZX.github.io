@@ -5,15 +5,19 @@
   
 
   
-  <title>MrLong的博客</title>
+  <title>键盘遮挡问题 | MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MrLong的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="项目中使用IQKeyboardManager解决键盘遮挡问题，但是一个界面中UITextField下方还会出现一个列表Veiw，IQKeyboardManager不合适，所以改为使用设置键盘通知，在此做记录。 禁用IQK 123456789- (void)viewWillAppear:(BOOL)animated &amp;#123;    [super viewWillAppear:animated];">
+<meta property="og:type" content="article">
+<meta property="og:title" content="键盘遮挡问题">
+<meta property="og:url" content="http://yoursite.com/2017/12/23/键盘遮挡问题/index.html">
 <meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="项目中使用IQKeyboardManager解决键盘遮挡问题，但是一个界面中UITextField下方还会出现一个列表Veiw，IQKeyboardManager不合适，所以改为使用设置键盘通知，在此做记录。 禁用IQK 123456789- (void)viewWillAppear:(BOOL)animated &amp;#123;    [super viewWillAppear:animated];">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-23T04:02:09.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MrLong的博客">
+<meta name="twitter:title" content="键盘遮挡问题">
+<meta name="twitter:description" content="项目中使用IQKeyboardManager解决键盘遮挡问题，但是一个界面中UITextField下方还会出现一个列表Veiw，IQKeyboardManager不合适，所以改为使用设置键盘通知，在此做记录。 禁用IQK 123456789- (void)viewWillAppear:(BOOL)animated &amp;#123;    [super viewWillAppear:animated];">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-键盘遮挡问题" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-键盘遮挡问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/23/键盘遮挡问题/" class="article-date">
   <time datetime="2017-12-23T03:02:33.168Z" itemprop="datePublished">2017-12-23</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/23/键盘遮挡问题/">键盘遮挡问题</a>
+    <h1 class="article-title" itemprop="name">
+      键盘遮挡问题
     </h1>
   
 
@@ -103,153 +105,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-搭建博客过程记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/21/搭建博客过程记录/" class="article-date">
-  <time datetime="2017-12-21T11:16:31.200Z" itemprop="datePublished">2017-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/搭建博客过程记录/">搭建博客过程记录</a>
-    </h1>
+    <a href="/2017/12/21/搭建博客过程记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">搭建博客过程记录</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>根据这篇文章<a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">5分钟 搭建免费个人博客</a>，搭建了自己的博客，搭建过程中遇到了几个问题，在此记录下</p>
-<p>1.在执行完</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令后，在浏览器中<a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a>无法访问我的本地博客，而输入<a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a>则可以访问</p>
-<p>2.关闭执行完</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令终端窗口后，在新终端窗口根目录下，执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令出错，在</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名称.github.io</span><br></pre></td></tr></table></figure>
-<p>文件下执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令就可以了。</p>
-<p>3.在执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>后，出现“error deployer not found:git”错误，执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>可以解决这一问题，好像是自己没有按照博客输入这一句造成的。</p>
-<p>问题记录完毕。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cjbitk1ax00027qqm9kwa6l0u" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/21/我的第一篇博客/" class="article-date">
-  <time datetime="2017-12-21T09:40:18.983Z" itemprop="datePublished">2017-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/我的第一篇博客/">NSString 移除所有非数字字符 保留空格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@<span class="string">"0123456789 "</span>]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@<span class="string">"”];</span></span><br></pre></td></tr></table></figure>
-<p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
-<p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
-<h3 id="NSCharacterSet、NSMutableCharacterSet"><a href="#NSCharacterSet、NSMutableCharacterSet" class="headerlink" title="NSCharacterSet、NSMutableCharacterSet"></a>NSCharacterSet、NSMutableCharacterSet</h3><p>1、用面向对象的方式来表示一组Unicode字符。<br>2、它经常与NSString及NSScanner组合起来使用，<font color="red">在不同的字符上做过滤、删除或者分割操作</font>。<br>3、NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
-<p>学习链接：<br><a href="http://blog.csdn.net/longshihua/article/details/50468910" target="_blank" rel="noopener">http://blog.csdn.net/longshihua/article/details/50468910</a></p>
-<p><a href="http://blog.csdn.net/zhongad007/article/details/77834341" target="_blank" rel="noopener">http://blog.csdn.net/zhongad007/article/details/77834341</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbitk1an00017qqm2uav5cgs" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/20/hello-world/" class="article-date">
-  <time datetime="2017-12-20T15:27:54.103Z" itemprop="datePublished">2017-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/20/hello-world/" data-id="cjbitk19s00007qqmt78mbqyq" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
