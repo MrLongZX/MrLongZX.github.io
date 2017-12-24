@@ -5,21 +5,19 @@
   
 
   
-  <title>Mac 桌面切换 | MrLong的博客</title>
+  <title>MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="桌面切换快捷键设置：  Ctrl+数字，既可切换桌面">
+  <meta name="description" content="title: 日期比较​— 123456789101112131415161718//时间比较-(BOOL)compareDate:(NSString*)startDateStr withDate:(NSString*)endDateStr&amp;#123;    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    [form">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 桌面切换">
-<meta property="og:url" content="http://yoursite.com/2017/12/23/桌面切换快捷键/index.html">
+<meta property="og:title" content="MrLong的博客">
+<meta property="og:url" content="http://yoursite.com/2017/12/24/日期比较/index.html">
 <meta property="og:site_name" content="MrLong的博客">
-<meta property="og:description" content="桌面切换快捷键设置：  Ctrl+数字，既可切换桌面">
+<meta property="og:description" content="title: 日期比较​— 123456789101112131415161718//时间比较-(BOOL)compareDate:(NSString*)startDateStr withDate:(NSString*)endDateStr&amp;#123;    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    [form">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1294138-b9b1ed33fdd64671.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-23T04:19:49.946Z">
+<meta property="og:updated_time" content="2017-12-24T13:37:14.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac 桌面切换">
-<meta name="twitter:description" content="桌面切换快捷键设置：  Ctrl+数字，既可切换桌面">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1294138-b9b1ed33fdd64671.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="MrLong的博客">
+<meta name="twitter:description" content="title: 日期比较​— 123456789101112131415161718//时间比较-(BOOL)compareDate:(NSString*)startDateStr withDate:(NSString*)endDateStr&amp;#123;    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    [form">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -66,36 +64,26 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-桌面切换快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-日期比较" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/23/桌面切换快捷键/" class="article-date">
-  <time datetime="2017-12-23T04:07:59.827Z" itemprop="datePublished">2017-12-23</time>
+    <a href="/2017/12/24/日期比较/" class="article-date">
+  <time datetime="2017-12-24T13:35:08.771Z" itemprop="datePublished">2017-12-24</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Mac 桌面切换
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>桌面切换快捷键设置：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1294138-b9b1ed33fdd64671.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快捷键图片"></p>
-<p>Ctrl+数字，既可切换桌面</p>
+        <hr>
+<p>title: 日期比较<br>​—</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//时间比较</span><br><span class="line">-(BOOL)compareDate:(NSString*)startDateStr withDate:(NSString*)endDateStr&#123;</span><br><span class="line">    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    [formatter setDateFormat:@&quot;yyyy-MM-dd&quot;];</span><br><span class="line">    </span><br><span class="line">    NSDate *startDate = [formatter dateFromString:startDateStr];</span><br><span class="line">    NSDate *endDate = [formatter dateFromString:endDateStr];</span><br><span class="line">    </span><br><span class="line">    NSComparisonResult result = [startDate compare:endDate];</span><br><span class="line">    if (result == NSOrderedDescending) &#123;</span><br><span class="line">        return NO;</span><br><span class="line">    &#125; else if (result == NSOrderedAscending) &#123;</span><br><span class="line">        return YES;</span><br><span class="line">    &#125; else if (result == NSOrderedSame) &#123;</span><br><span class="line">        return YES;</span><br><span class="line">    &#125;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbktkxeo000553qmhlpeuvdj" class="article-share-link">共有</a>
+      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbktkxee000353qm6ghq7gs3" class="article-share-link">共有</a>
       
       
     </footer>
@@ -104,19 +92,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/23/Mac软件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Mac软件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/23/键盘遮挡问题/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/23/Mac软件/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">键盘遮挡问题</div>
+      <div class="article-nav-title">Mac软件</div>
     </a>
   
 </nav>
