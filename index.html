@@ -51,7 +51,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -71,6 +71,16 @@
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/25/Python学习二/">Python学习二</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -93,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbm9tkdn0001xhqmqsgh5f90" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbma5tjg0002z9qmuyh5dbk3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbm9tkdg0000xhqmynk3fwfk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbma5tj50001z9qmdxd30ouc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbm9tkef0006xhqmbgssq89d" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbma5tjj0004z9qmvwgyrzak" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbm9tkdv0002xhqmor4rbi9z" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbma5tim0000z9qm6z1fuq39" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbm9tkej0008xhqmut9mpsaq" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbma5tju0007z9qmdntvu1b7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,18 +295,18 @@
       
         <p>项目中使用IQKeyboardManager解决键盘遮挡问题，但是一个界面中UITextField下方还会出现一个列表Veiw，IQKeyboardManager不合适，所以改为使用设置键盘通知，在此做记录。</p>
 <p>禁用IQK</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].<span class="built_in">enable</span> = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].<span class="built_in">enable</span> = YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].enable = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].enable = YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>viewDidLoad中添加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加键盘通知</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加键盘通知</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];</span><br></pre></td></tr></table></figure>
 <p>调用的方法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#pragma mark - 键盘弹出</span></span><br><span class="line">- (void)keyBoardWillShow:(NSNotification *)notification&#123;</span><br><span class="line">    <span class="keyword">if</span> ([field isFirstResponder]) &#123;</span><br><span class="line">        //获取通知对象</span><br><span class="line">        NSDictionary *userInfo = [notification userInfo];</span><br><span class="line">        //获取动画时间</span><br><span class="line">        CGFloat time = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];</span><br><span class="line">        //获取键盘frame</span><br><span class="line">        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];</span><br><span class="line">        //获取键盘高度</span><br><span class="line">        CGFloat keyboardHeight = keyboardRect.size.height;</span><br><span class="line">        </span><br><span class="line">        //键盘弹出视图上移</span><br><span class="line">        [self showKeyBoardToMoveView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//键盘弹出视图上移</span><br><span class="line">- (void)showKeyBoardToMoveView &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        CGFloat offet = <span class="string">"view上移的高度"</span></span><br><span class="line">        <span class="keyword">if</span> (offet &lt; 0) &#123;</span><br><span class="line">            self.view.frame = CGRectMake(0, offet, kScreenW, kScreenH);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark - 键盘收回调用</span></span><br><span class="line">- (void)keyBoardWillHide:(NSNotification *)not &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        self.view.frame = CGRectMake(0, 0, kScreenW, kScreenH);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - 键盘弹出</span><br><span class="line">- (void)keyBoardWillShow:(NSNotification *)notification&#123;</span><br><span class="line">    if ([field isFirstResponder]) &#123;</span><br><span class="line">        //获取通知对象</span><br><span class="line">        NSDictionary *userInfo = [notification userInfo];</span><br><span class="line">        //获取动画时间</span><br><span class="line">        CGFloat time = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];</span><br><span class="line">        //获取键盘frame</span><br><span class="line">        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];</span><br><span class="line">        //获取键盘高度</span><br><span class="line">        CGFloat keyboardHeight = keyboardRect.size.height;</span><br><span class="line">        </span><br><span class="line">        //键盘弹出视图上移</span><br><span class="line">        [self showKeyBoardToMoveView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//键盘弹出视图上移</span><br><span class="line">- (void)showKeyBoardToMoveView &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        CGFloat offet = &quot;view上移的高度&quot;</span><br><span class="line">        if (offet &lt; 0) &#123;</span><br><span class="line">            self.view.frame = CGRectMake(0, offet, kScreenW, kScreenH);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - 键盘收回调用</span><br><span class="line">- (void)keyBoardWillHide:(NSNotification *)not &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        self.view.frame = CGRectMake(0, 0, kScreenW, kScreenH);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>移除通知</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillHideNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillShowNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillHideNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillShowNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjbm9tkeh0007xhqmj47huq33" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjbma5tjr0005z9qmbbv8jgwc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -351,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cjbm9tkee0005xhqmvsoslm1g" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cjbma5tji0003z9qmniyax50k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -383,7 +393,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@<span class="string">"0123456789 "</span>]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@<span class="string">"”];</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@&quot;”];</span><br></pre></td></tr></table></figure>
 <p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
 <p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
 <h3 id="NSCharacterSet、NSMutableCharacterSet"><a href="#NSCharacterSet、NSMutableCharacterSet" class="headerlink" title="NSCharacterSet、NSMutableCharacterSet"></a>NSCharacterSet、NSMutableCharacterSet</h3><p>1、用面向对象的方式来表示一组Unicode字符。<br>2、它经常与NSString及NSScanner组合起来使用，<font color="red">在不同的字符上做过滤、删除或者分割操作</font>。<br>3、NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
@@ -393,52 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbm9tkdz0004xhqm6cyex63g" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/20/hello-world/" class="article-date">
-  <time datetime="2017-12-20T15:27:54.103Z" itemprop="datePublished">2017-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/20/hello-world/" data-id="cjbm9tkdy0003xhqmnqb4f8so" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbma5tjs0006z9qmue9xd6ac" class="article-share-link">Share</a>
       
       
     </footer>
@@ -464,7 +429,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -474,12 +439,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/12/25/Python学习二/">(no title)</a>
+            <a href="/2017/12/25/Python学习二/">Python学习二</a>
           </li>
         
           <li>
