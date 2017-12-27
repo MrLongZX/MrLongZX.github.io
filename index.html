@@ -51,7 +51,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,6 +61,107 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-监测内存泄露记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/27/监测内存泄露记录/" class="article-date">
+  <time datetime="2017-12-27T14:02:53.150Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Instruments-Leaks"><a href="#Instruments-Leaks" class="headerlink" title="Instruments-Leaks"></a>Instruments-Leaks</h3><p>使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。</p>
+<p>摘录：</p>
+<p>一个 app 的内存分三类：</p>
+<p>Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Leaks instrument).</p>
+<p>Abandoned memory: Memory still referenced by your application that has no useful purpose.</p>
+<p>Cached memory: Memory still referenced by your application that might be used again for better performance.</p>
+<p>Leaked memory 和 Abandoned memory 都属于应该释放而没释放的内存，都是内存泄露</p>
+<p>Leaks 工具只负责检测 Leaked memory，而不管 Abandoned memory。</p>
+<p>MRC 时代 Leaked memory 很常见，因为很容易忘了调用 release，但在 ARC 时代更常见的内存泄露是循环引用导致的 Abandoned memory，Leaks 工具查不出这类内存泄露，应用有限。</p>
+<p>对于 Abandoned memory，可以用 Instrument 的 Allocations 检测出来，但很不方便。</p>
+<p>参考链接：</p>
+<p><a href="https://www.jianshu.com/p/92cd90e65d4c" target="_blank" rel="noopener">Instruments检测内存泄漏</a></p>
+<h3 id="第三方"><a href="#第三方" class="headerlink" title="第三方"></a>第三方</h3><p>微信阅读的MLeaksFinder，Facebook的FBMemoryProfiler</p>
+<p>MLeaksFinder只检测UIViewController和UIView对象</p>
+<p>FBMemoryProfiler检测NSObject的子类</p>
+<p>参考链接：</p>
+<p><a href="http://wereadteam.github.io/2016/02/22/MLeaksFinder/" target="_blank" rel="noopener">MLeaksFinder：精准 iOS 内存泄露检测工具</a></p>
+<p><a href="http://wereadteam.github.io/2016/07/20/MLeaksFinder2/" target="_blank" rel="noopener">MLeaksFinder 新特性</a></p>
+<p><a href="http://www.cocoachina.com/ios/20170102/18490.html" target="_blank" rel="noopener">iOS 内存泄漏监测自动化</a></p>
+<p><a href="http://ifujun.com/fbmemoryprofiler-shi-yong-ji-chu-jiao-cheng/" target="_blank" rel="noopener">FBMemoryProfiler 基础教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbp57mwr000925qm0gam1fqv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python学习五" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/27/Python学习五/" class="article-date">
+  <time datetime="2017-12-27T12:31:33.209Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/Python学习五/">Python学习五</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>字典，全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。</p>
+<p>dict内部存放的顺序和key放入的顺序是没有关系的。</p>
+<p>dict的key必须是不可变对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'Michael'</span>]</span><br><span class="line"><span class="number">95</span></span><br></pre></td></tr></table></figure>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
+<p>重复元素在set中自动被过滤。</p>
+<p>无序和无重复元素的集合。</p>
+<p>可以做数学意义上的交集、并集等操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbp57mwb000525qm2zdrj1v5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Python学习四" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -95,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbp1b77l0002awqmaj6yrmal" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbp57mw2000425qmud22lt86" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -134,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbp1b77q0004awqm13pija51" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbp57mvf000025qmeh4obg5b" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -185,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbp1b76w0000awqmgclwpuw8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbp57mw1000325qmcag5b2h5" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -225,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbp1b77b0001awqm8kfio6m8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbp57mvq000125qmuwkz1xws" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -262,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbp1b7800006awqm7fz4rghz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbp57mwf000725qmsedd3tyv" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -304,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbp1b77o0003awqm0e1ez7iw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbp57mvy000225qme448ugp1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -343,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbp1b78p0008awqm41v62qaa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbp57mwh000825qms4vqytod" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -388,104 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjbp1b78q0009awqm2e9q116j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-搭建博客过程记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/21/搭建博客过程记录/" class="article-date">
-  <time datetime="2017-12-21T11:16:31.200Z" itemprop="datePublished">2017-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/搭建博客过程记录/">搭建博客过程记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>根据这篇文章<a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">5分钟 搭建免费个人博客</a>，搭建了自己的博客，搭建过程中遇到了几个问题，在此记录下</p>
-<p>1.在执行完</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令后，在浏览器中<a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a>无法访问我的本地博客，而输入<a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a>则可以访问</p>
-<p>2.关闭执行完</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令终端窗口后，在新终端窗口根目录下，执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令出错，在</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名称.github.io</span><br></pre></td></tr></table></figure>
-<p>文件下执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>命令就可以了。</p>
-<p>3.在执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>后，出现“error deployer not found:git”错误，执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>可以解决这一问题，好像是自己没有按照博客输入这一句造成的。</p>
-<p>问题记录完毕。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cjbp1b7830007awqm8ci01r2z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/21/我的第一篇博客/" class="article-date">
-  <time datetime="2017-12-21T09:40:18.983Z" itemprop="datePublished">2017-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/我的第一篇博客/">NSString 移除所有非数字字符 保留空格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@&quot;”];</span><br></pre></td></tr></table></figure>
-<p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
-<p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
-<h3 id="NSCharacterSet、NSMutableCharacterSet"><a href="#NSCharacterSet、NSMutableCharacterSet" class="headerlink" title="NSCharacterSet、NSMutableCharacterSet"></a>NSCharacterSet、NSMutableCharacterSet</h3><p>1、用面向对象的方式来表示一组Unicode字符。<br>2、它经常与NSString及NSScanner组合起来使用，<font color="red">在不同的字符上做过滤、删除或者分割操作</font>。<br>3、NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
-<p>学习链接：<br><a href="http://blog.csdn.net/longshihua/article/details/50468910" target="_blank" rel="noopener">http://blog.csdn.net/longshihua/article/details/50468910</a></p>
-<p><a href="http://blog.csdn.net/zhongad007/article/details/77834341" target="_blank" rel="noopener">http://blog.csdn.net/zhongad007/article/details/77834341</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjbp1b77z0005awqmw3ha9hnb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjbp57mwt000a25qmdomowvgf" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -496,6 +500,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+  </nav>
 
 </section>
         
@@ -511,7 +520,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -521,9 +530,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/Python学习五/">Python学习五</a>
+          </li>
         
           <li>
             <a href="/2017/12/26/Python学习四/">Python学习四</a>
@@ -535,14 +552,6 @@
         
           <li>
             <a href="/2017/12/25/Python学习二/">Python学习二</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/24/Python学习一/">Python学习一</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/24/日期比较/">日期比较</a>
           </li>
         
       </ul>

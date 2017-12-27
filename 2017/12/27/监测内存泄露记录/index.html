@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>监测内存泄露记录 | MrLong的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Instruments-Leaks使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。 摘录： 一个 app 的内存分三类： Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="监测内存泄露记录">
+<meta property="og:url" content="http://yoursite.com/2017/12/27/监测内存泄露记录/index.html">
+<meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="Instruments-Leaks使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。 摘录： 一个 app 的内存分三类： Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Le">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-27T14:12:50.153Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="监测内存泄露记录">
+<meta name="twitter:description" content="Instruments-Leaks使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。 摘录： 一个 app 的内存分三类： Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Le">
+  
+    <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MrLong的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-监测内存泄露记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/27/监测内存泄露记录/" class="article-date">
+  <time datetime="2017-12-27T14:02:53.150Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      监测内存泄露记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Instruments-Leaks"><a href="#Instruments-Leaks" class="headerlink" title="Instruments-Leaks"></a>Instruments-Leaks</h3><p>使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。</p>
+<p>摘录：</p>
+<p>一个 app 的内存分三类：</p>
+<p>Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Leaks instrument).</p>
+<p>Abandoned memory: Memory still referenced by your application that has no useful purpose.</p>
+<p>Cached memory: Memory still referenced by your application that might be used again for better performance.</p>
+<p>Leaked memory 和 Abandoned memory 都属于应该释放而没释放的内存，都是内存泄露</p>
+<p>Leaks 工具只负责检测 Leaked memory，而不管 Abandoned memory。</p>
+<p>MRC 时代 Leaked memory 很常见，因为很容易忘了调用 release，但在 ARC 时代更常见的内存泄露是循环引用导致的 Abandoned memory，Leaks 工具查不出这类内存泄露，应用有限。</p>
+<p>对于 Abandoned memory，可以用 Instrument 的 Allocations 检测出来，但很不方便。</p>
+<p>参考链接：</p>
+<p><a href="https://www.jianshu.com/p/92cd90e65d4c" target="_blank" rel="noopener">Instruments检测内存泄漏</a></p>
+<h3 id="第三方"><a href="#第三方" class="headerlink" title="第三方"></a>第三方</h3><p>微信阅读的MLeaksFinder，Facebook的FBMemoryProfiler</p>
+<p>MLeaksFinder只检测UIViewController和UIView对象</p>
+<p>FBMemoryProfiler检测NSObject的子类</p>
+<p>参考链接：</p>
+<p><a href="http://wereadteam.github.io/2016/02/22/MLeaksFinder/" target="_blank" rel="noopener">MLeaksFinder：精准 iOS 内存泄露检测工具</a></p>
+<p><a href="http://wereadteam.github.io/2016/07/20/MLeaksFinder2/" target="_blank" rel="noopener">MLeaksFinder 新特性</a></p>
+<p><a href="http://www.cocoachina.com/ios/20170102/18490.html" target="_blank" rel="noopener">iOS 内存泄漏监测自动化</a></p>
+<p><a href="http://ifujun.com/fbmemoryprofiler-shi-yong-ji-chu-jiao-cheng/" target="_blank" rel="noopener">FBMemoryProfiler 基础教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbp57mwr000925qm0gam1fqv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/27/Python学习五/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Python学习五</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/Python学习五/">Python学习五</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/26/Python学习四/">Python学习四</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/Python学习三/">Python学习三</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/Python学习二/">Python学习二</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 SYL<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
