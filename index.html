@@ -51,7 +51,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,6 +61,53 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Python学习六" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/28/Python学习六/" class="article-date">
+  <time datetime="2017-12-28T12:18:13.875Z" itemprop="datePublished">2017-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/28/Python学习六/">Python学习六</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>Python内置了很多有用的函数，我们可以直接调用。</p>
+<p>绝对值的函数abs()、max()、int()、float()、str()、bool()、hex()。</p>
+<p><a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">更多</a></p>
+<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。</p>
+<p>如果没有<code>return</code>语句，函数执行完毕后也会返回结果，只是结果为<code>None</code>。<code>return None</code>可以简写为<code>return</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> -x</span><br></pre></td></tr></table></figure>
+<p>from abstest import my_abs，从abstest.py文件加载my_abs函数</p>
+<p>空函数：<code>pass</code>语句什么都不做，<code>pass</code>可以用来作为占位符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>python可以返回多个值，其实就是返回一个tuple</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(x, y, step, angle=<span class="number">0</span>)</span>:</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br><span class="line">  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(x, y)</span><br><span class="line"><span class="number">151.96152422706632</span> <span class="number">70.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjbqi4w5s0003k4ksmmvo5b0z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-监测内存泄露记录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -108,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbp57mwr000925qm0gam1fqv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbqi4w6m000bk4ksjymoe9vv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbp57mwb000525qm2zdrj1v5" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbqi4w6d0007k4ks7z00vfgi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -196,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbp57mw2000425qmud22lt86" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbqi4w5y0004k4ks47bcbdi2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbp57mvf000025qmeh4obg5b" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbqi4w5q0002k4ksiqmrhrdb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbp57mw1000325qmcag5b2h5" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbqi4w680005k4ksj3prbbbt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbp57mvq000125qmuwkz1xws" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbqi4w500000k4kszzzrkndt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbp57mwf000725qmsedd3tyv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjbqi4w6i0009k4ks64so1n8i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbp57mvy000225qme448ugp1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjbqi4w5f0001k4ksde4ramjv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,52 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbp57mwh000825qms4vqytod" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-键盘遮挡问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/23/键盘遮挡问题/" class="article-date">
-  <time datetime="2017-12-23T03:02:33.168Z" itemprop="datePublished">2017-12-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/23/键盘遮挡问题/">键盘遮挡问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目中使用IQKeyboardManager解决键盘遮挡问题，但是一个界面中UITextField下方还会出现一个列表Veiw，IQKeyboardManager不合适，所以改为使用设置键盘通知，在此做记录。</p>
-<p>禁用IQK</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].enable = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    [IQKeyboardManager sharedManager].enable = YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>viewDidLoad中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//添加键盘通知</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];</span><br><span class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];</span><br></pre></td></tr></table></figure>
-<p>调用的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - 键盘弹出</span><br><span class="line">- (void)keyBoardWillShow:(NSNotification *)notification&#123;</span><br><span class="line">    if ([field isFirstResponder]) &#123;</span><br><span class="line">        //获取通知对象</span><br><span class="line">        NSDictionary *userInfo = [notification userInfo];</span><br><span class="line">        //获取动画时间</span><br><span class="line">        CGFloat time = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];</span><br><span class="line">        //获取键盘frame</span><br><span class="line">        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];</span><br><span class="line">        //获取键盘高度</span><br><span class="line">        CGFloat keyboardHeight = keyboardRect.size.height;</span><br><span class="line">        </span><br><span class="line">        //键盘弹出视图上移</span><br><span class="line">        [self showKeyBoardToMoveView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//键盘弹出视图上移</span><br><span class="line">- (void)showKeyBoardToMoveView &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        CGFloat offet = &quot;view上移的高度&quot;</span><br><span class="line">        if (offet &lt; 0) &#123;</span><br><span class="line">            self.view.frame = CGRectMake(0, offet, kScreenW, kScreenH);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark - 键盘收回调用</span><br><span class="line">- (void)keyBoardWillHide:(NSNotification *)not &#123;</span><br><span class="line">    [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">        self.view.frame = CGRectMake(0, 0, kScreenW, kScreenH);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>移除通知</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc &#123;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillHideNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self</span><br><span class="line">                                                    name:UIKeyboardWillShowNotification</span><br><span class="line">                                                  object:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjbp57mwt000a25qmdomowvgf" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjbqi4w6k000ak4ksl11cuozp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -503,7 +505,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -520,7 +522,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -530,9 +532,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/28/Python学习六/">Python学习六</a>
+          </li>
         
           <li>
             <a href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
@@ -548,10 +554,6 @@
         
           <li>
             <a href="/2017/12/25/Python学习三/">Python学习三</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/25/Python学习二/">Python学习二</a>
           </li>
         
       </ul>
