@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python学习八 | MrLong的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="切片取一个list、tuple、字符串的部分元素的操作 L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索引3。即索引0，1，2，正好是3个元素。 倒数第一个元素的索引是-1。 12345678910111213141516171819202122232425262728293031323334353637L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习八">
+<meta property="og:url" content="http://yoursite.com/2017/12/30/Python学习八/index.html">
+<meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="切片取一个list、tuple、字符串的部分元素的操作 L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索引3。即索引0，1，2，正好是3个元素。 倒数第一个元素的索引是-1。 12345678910111213141516171819202122232425262728293031323334353637L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-30T09:51:25.412Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习八">
+<meta name="twitter:description" content="切片取一个list、tuple、字符串的部分元素的操作 L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索引3。即索引0，1，2，正好是3个元素。 倒数第一个元素的索引是-1。 12345678910111213141516171819202122232425262728293031323334353637L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;,">
+  
+    <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MrLong的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python学习八" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/30/Python学习八/" class="article-date">
+  <time datetime="2017-12-30T09:12:38.119Z" itemprop="datePublished">2017-12-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python学习八
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>取一个list、tuple、字符串的部分元素的操作</p>
+<p><code>L[0:3]</code>表示，从索引<code>0</code>开始取，直到索引<code>3</code>为止，但不包括索引<code>3</code>。即索引<code>0</code>，<code>1</code>，<code>2</code>，正好是3个元素。</p>
+<p>倒数第一个元素的索引是<code>-1</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>, <span class="string">'Bob'</span>, <span class="string">'Jack'</span>];</span><br><span class="line"></span><br><span class="line">m = [L[<span class="number">0</span>],L[<span class="number">1</span>],L[<span class="number">2</span>]];</span><br><span class="line">print(m)</span><br><span class="line"></span><br><span class="line">r = []</span><br><span class="line">n = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    r.append(L[i])</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片</span></span><br><span class="line">print(L[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line">print(L[:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 倒数切片</span></span><br><span class="line">print(L[<span class="number">-2</span>:<span class="number">-1</span>])</span><br><span class="line">print(L[<span class="number">-2</span>:])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">L = list(range(<span class="number">100</span>))</span><br><span class="line">print(L)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前10个数，每两个取一个</span></span><br><span class="line">print(L[:<span class="number">10</span>:<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有数，每5个取一个</span></span><br><span class="line">print(L[::<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只写[:]就可以原样复制一个list</span></span><br><span class="line">M = L[:]</span><br><span class="line">print(M)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串 切片</span></span><br><span class="line">S = <span class="string">'ASDFGHJKL'</span></span><br><span class="line">print(S[:<span class="number">3</span>])</span><br><span class="line">print(S[::<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjbt73uq70006s7qmodxkwmba" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/30/title- Python学习九/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python学习九
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/29/Python学习七/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python学习七</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/30/title- Python学习九/">Python学习九</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Python学习八/">Python学习八</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Python学习七/">Python学习七</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/28/Python学习六/">Python学习六</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 SYL<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

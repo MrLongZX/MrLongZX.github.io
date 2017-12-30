@@ -5,15 +5,19 @@
   
 
   
-  <title>MrLong的博客</title>
+  <title>Python学习七 | MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MrLong的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="函数参数位置参数12def power(x):    return x * x 对于power(x)函数，参数x就是一个位置参数。 123456def power(x, n):    s = 1    while n &amp;gt; 0:        n = n - 1        s = s * x    return s 修改后的power(x, n)函数有两个参数：x和n，这两个参数都是位置参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习七">
+<meta property="og:url" content="http://yoursite.com/2017/12/29/Python学习七/index.html">
 <meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="函数参数位置参数12def power(x):    return x * x 对于power(x)函数，参数x就是一个位置参数。 123456def power(x, n):    s = 1    while n &amp;gt; 0:        n = n - 1        s = s * x    return s 修改后的power(x, n)函数有两个参数：x和n，这两个参数都是位置参">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-30T03:09:08.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MrLong的博客">
+<meta name="twitter:title" content="Python学习七">
+<meta name="twitter:description" content="函数参数位置参数12def power(x):    return x * x 对于power(x)函数，参数x就是一个位置参数。 123456def power(x, n):    s = 1    while n &amp;gt; 0:        n = n - 1        s = s * x    return s 修改后的power(x, n)函数有两个参数：x和n，这两个参数都是位置参">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -60,87 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-title- Python学习九" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/30/title- Python学习九/" class="article-date">
-  <time datetime="2017-12-30T09:53:03.805Z" itemprop="datePublished">2017-12-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/30/title- Python学习九/">Python学习九</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>通过<code>for</code>循环来遍历list或tuple等，称为迭代（Iteration）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># 迭代key</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> d:</span><br><span class="line">    print(key)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 迭代value</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> d.values():</span><br><span class="line">    print(value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 迭代key、value</span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> d.items():</span><br><span class="line">    print(k,v)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 迭代索引和元素本身</span></span><br><span class="line"><span class="keyword">for</span> i, value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]):</span><br><span class="line">    print(i, value)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 引用了两个变量</span></span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> [(<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">4</span>), (<span class="number">3</span>, <span class="number">9</span>)]:</span><br><span class="line">    print(x, y)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/title- Python学习九/" data-id="cjbt73ups0004s7qmsy92ee8h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习八" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/30/Python学习八/" class="article-date">
-  <time datetime="2017-12-30T09:12:38.119Z" itemprop="datePublished">2017-12-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/30/Python学习八/">Python学习八</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>取一个list、tuple、字符串的部分元素的操作</p>
-<p><code>L[0:3]</code>表示，从索引<code>0</code>开始取，直到索引<code>3</code>为止，但不包括索引<code>3</code>。即索引<code>0</code>，<code>1</code>，<code>2</code>，正好是3个元素。</p>
-<p>倒数第一个元素的索引是<code>-1</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>, <span class="string">'Bob'</span>, <span class="string">'Jack'</span>];</span><br><span class="line"></span><br><span class="line">m = [L[<span class="number">0</span>],L[<span class="number">1</span>],L[<span class="number">2</span>]];</span><br><span class="line">print(m)</span><br><span class="line"></span><br><span class="line">r = []</span><br><span class="line">n = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    r.append(L[i])</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片</span></span><br><span class="line">print(L[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line">print(L[:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 倒数切片</span></span><br><span class="line">print(L[<span class="number">-2</span>:<span class="number">-1</span>])</span><br><span class="line">print(L[<span class="number">-2</span>:])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">L = list(range(<span class="number">100</span>))</span><br><span class="line">print(L)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前10个数，每两个取一个</span></span><br><span class="line">print(L[:<span class="number">10</span>:<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有数，每5个取一个</span></span><br><span class="line">print(L[::<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只写[:]就可以原样复制一个list</span></span><br><span class="line">M = L[:]</span><br><span class="line">print(M)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串 切片</span></span><br><span class="line">S = <span class="string">'ASDFGHJKL'</span></span><br><span class="line">print(S[:<span class="number">3</span>])</span><br><span class="line">print(S[::<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjbt73uq70006s7qmodxkwmba" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习七" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Python学习七" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/29/Python学习七/" class="article-date">
   <time datetime="2017-12-29T15:20:41.279Z" itemprop="datePublished">2017-12-29</time>
@@ -153,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/29/Python学习七/">Python学习七</a>
+    <h1 class="article-title" itemprop="name">
+      Python学习七
     </h1>
   
 
@@ -321,337 +245,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Python学习六" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/28/Python学习六/" class="article-date">
-  <time datetime="2017-12-28T12:18:13.875Z" itemprop="datePublished">2017-12-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/12/30/Python学习八/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/Python学习六/">Python学习六</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>Python内置了很多有用的函数，我们可以直接调用。</p>
-<p>绝对值的函数abs()、max()、int()、float()、str()、bool()、hex()。</p>
-<p><a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">更多</a></p>
-<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。</p>
-<p>如果没有<code>return</code>语句，函数执行完毕后也会返回结果，只是结果为<code>None</code>。<code>return None</code>可以简写为<code>return</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> -x</span><br></pre></td></tr></table></figure>
-<p>from abstest import my_abs，从abstest.py文件加载my_abs函数</p>
-<p>空函数：<code>pass</code>语句什么都不做，<code>pass</code>可以用来作为占位符</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>python可以返回多个值，其实就是返回一个tuple</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(x, y, step, angle=<span class="number">0</span>)</span>:</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br><span class="line">  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(x, y)</span><br><span class="line"><span class="number">151.96152422706632</span> <span class="number">70.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjbt73uqg0008s7qmf3p5iypv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-监测内存泄露记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/27/监测内存泄露记录/" class="article-date">
-  <time datetime="2017-12-27T14:02:53.150Z" itemprop="datePublished">2017-12-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          Python学习八
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
-    </h1>
   
+    <a href="/2017/12/28/Python学习六/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python学习六</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Instruments-Leaks"><a href="#Instruments-Leaks" class="headerlink" title="Instruments-Leaks"></a>Instruments-Leaks</h3><p>使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。</p>
-<p>摘录：</p>
-<p>一个 app 的内存分三类：</p>
-<p>Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Leaks instrument).</p>
-<p>Abandoned memory: Memory still referenced by your application that has no useful purpose.</p>
-<p>Cached memory: Memory still referenced by your application that might be used again for better performance.</p>
-<p>Leaked memory 和 Abandoned memory 都属于应该释放而没释放的内存，都是内存泄露</p>
-<p>Leaks 工具只负责检测 Leaked memory，而不管 Abandoned memory。</p>
-<p>MRC 时代 Leaked memory 很常见，因为很容易忘了调用 release，但在 ARC 时代更常见的内存泄露是循环引用导致的 Abandoned memory，Leaks 工具查不出这类内存泄露，应用有限。</p>
-<p>对于 Abandoned memory，可以用 Instrument 的 Allocations 检测出来，但很不方便。</p>
-<p>参考链接：</p>
-<p><a href="https://www.jianshu.com/p/92cd90e65d4c" target="_blank" rel="noopener">Instruments检测内存泄漏</a></p>
-<h3 id="第三方"><a href="#第三方" class="headerlink" title="第三方"></a>第三方</h3><p>微信阅读的MLeaksFinder，Facebook的FBMemoryProfiler</p>
-<p>MLeaksFinder只检测UIViewController和UIView对象</p>
-<p>FBMemoryProfiler检测NSObject的子类</p>
-<p>参考链接：</p>
-<p><a href="http://wereadteam.github.io/2016/02/22/MLeaksFinder/" target="_blank" rel="noopener">MLeaksFinder：精准 iOS 内存泄露检测工具</a></p>
-<p><a href="http://wereadteam.github.io/2016/07/20/MLeaksFinder2/" target="_blank" rel="noopener">MLeaksFinder 新特性</a></p>
-<p><a href="http://www.cocoachina.com/ios/20170102/18490.html" target="_blank" rel="noopener">iOS 内存泄漏监测自动化</a></p>
-<p><a href="http://ifujun.com/fbmemoryprofiler-shi-yong-ji-chu-jiao-cheng/" target="_blank" rel="noopener">FBMemoryProfiler 基础教程</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbt73uqr000cs7qm8ambto4d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Python学习五" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/27/Python学习五/" class="article-date">
-  <time datetime="2017-12-27T12:31:33.209Z" itemprop="datePublished">2017-12-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/Python学习五/">Python学习五</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>字典，全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。</p>
-<p>dict内部存放的顺序和key放入的顺序是没有关系的。</p>
-<p>dict的key必须是不可变对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'Michael'</span>]</span><br><span class="line"><span class="number">95</span></span><br></pre></td></tr></table></figure>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
-<p>重复元素在set中自动被过滤。</p>
-<p>无序和无重复元素的集合。</p>
-<p>可以做数学意义上的交集、并集等操作。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbt73upq0003s7qm1hl60276" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习四" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/26/Python学习四/" class="article-date">
-  <time datetime="2017-12-26T15:30:22.422Z" itemprop="datePublished">2017-12-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/Python学习四/">Python学习四</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Python学习四"><a href="#Python学习四" class="headerlink" title="Python学习四"></a>Python学习四</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>一个可变有序列表，元素类型可以不同，可以包含另一个list，可以随时添加和删除其中的元素。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classmates = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
-<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>元组，有序列表，一旦初始化不能修改，在定义的时候，tuple的元素就必须被确定下来，tuple中的list元素还是可以改变数据的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classmates = (<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &lt;条件判断<span class="number">1</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">1</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">2</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">2</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">3</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">3</span>&gt;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    &lt;执行<span class="number">4</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>for、while、break、continue。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]</span><br><span class="line">for name in names:</span><br><span class="line">    print(name)</span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">sum = 0</span><br><span class="line">n = 99</span><br><span class="line">while n &gt; 0:</span><br><span class="line">    sum = sum + n</span><br><span class="line">    n = n - 2</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbt73uq50005s7qmi4uk79iu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习三" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/25/Python学习三/" class="article-date">
-  <time datetime="2017-12-25T15:16:20.222Z" itemprop="datePublished">2017-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Python学习三/">Python学习三</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>ASCII、Unicode、UTF-8</p>
-<h3 id="Python的字符串"><a href="#Python的字符串" class="headerlink" title="Python的字符串"></a>Python的字符串</h3><p>Python 3版本中，字符串是以Unicode编码的，提供了<code>ord()</code>函数获取字符的整数表示，<code>chr()</code>函数把编码转换为对应的字符</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</span><br><span class="line"><span class="number">65</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</span><br><span class="line"><span class="number">20013</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</span><br><span class="line"><span class="string">'B'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">25991</span>)</span><br><span class="line"><span class="string">'文'</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbt73uqv000ds7qm6ou0vwwp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/25/Python学习二/" class="article-date">
-  <time datetime="2017-12-25T13:18:09.807Z" itemprop="datePublished">2017-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Python学习二/">Python学习二</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = input()</span><br><span class="line">print(<span class="string">'Hello,'</span>, name)</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>整形：精确，没有大小限制， / 除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.3333333333333335</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure>
-<p>还有一种除法是 // ，称为地板除，两个整数的除法仍然是整数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> // <span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>取余：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> % <span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>浮点数：有四舍五入，没有大小限制</p>
-<p>字符串：转义字符  \ ，\n表示换行，\t表示制表符，\表示字符\。</p>
-<p>布尔值：只有True、False，布尔值可以用and（与）、or（或）和not（非）运算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">'adult'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'teenager'</span>)</span><br></pre></td></tr></table></figure>
-<p>空值：None</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>可以是任意数据类型，必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
-<p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量就是不能变的变量，通常用全部大写的变量名表示常量</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbt73upn0002s7qmkgtb87w0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/24/Python学习一/" class="article-date">
-  <time datetime="2017-12-24T15:52:31.694Z" itemprop="datePublished">2017-12-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/Python学习一/">Python学习一</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h3><p><a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2" target="_blank" rel="noopener">https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2</a></p>
-<h3 id="PyCharm使用Python3"><a href="#PyCharm使用Python3" class="headerlink" title="PyCharm使用Python3"></a>PyCharm使用Python3</h3><p><a href="https://www.jianshu.com/p/1a002847265e" target="_blank" rel="noopener">https://www.jianshu.com/p/1a002847265e</a></p>
-<p>第一行Python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbt73uox0001s7qmrlweygkd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
