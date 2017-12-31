@@ -51,7 +51,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -62,9 +62,115 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-title- Python学习九" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Block研究总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/30/title- Python学习九/" class="article-date">
+    <a href="/2017/12/31/Block研究总结/" class="article-date">
+  <time datetime="2017-12-31T07:37:51.996Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/Block研究总结/">Block研究总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简单规则"><a href="#简单规则" class="headerlink" title="简单规则"></a>简单规则</h3><p>Block 中，Block <strong>表达式截获</strong>所使用的自动变量的值，即保存该自动变量的<strong>瞬间值</strong>。<br>修饰为 <code>__block</code> 的变量，在捕获时，获取的<strong>不再是瞬间值</strong>。</p>
+<h3 id="Block实现"><a href="#Block实现" class="headerlink" title="Block实现"></a>Block实现</h3><p>block 是带有自动变量（局部变量）的匿名函数。</p>
+<p>通过 <code>clang -rewrite-objc yourfile.m</code> clang 将会把 Objective-C 的代码转换成 C 语言的代码，查看源码了解block。</p>
+<h3 id="Block-截获外部自动变量（局部变量）"><a href="#Block-截获外部自动变量（局部变量）" class="headerlink" title="Block 截获外部自动变量（局部变量）"></a>Block 截获外部自动变量（局部变量）</h3><p>在 block 被声明时，block 会将在block中用到的自动变量（局部变量） 作为block的 的内部变量保存下来了。</p>
+<p>所以无论在在声明之后怎样更改 这个自动变量 的值，都不会影响。</p>
+<p>block 调用时访问的是block内部保存的自定变量值。</p>
+<p>这就是 Block 捕获变量瞬间值的原理。</p>
+<h3 id="Block对外部变量的读写"><a href="#Block对外部变量的读写" class="headerlink" title="Block对外部变量的读写"></a>Block对外部变量的读写</h3><p> block 能读写以下几种变量：</p>
+<p>静态变量</p>
+<p>静态全局变量</p>
+<p>全局变量</p>
+<p>对局部变量只读，局部变量增加 __block 修饰后，就也可以进行写操作。</p>
+<h4 id="可以进行读写的原因"><a href="#可以进行读写的原因" class="headerlink" title="可以进行读写的原因"></a>可以进行读写的原因</h4><p>对全局变量、静态全局变量可以读写，是因为作用域大，block中可以直接获取内存地址。</p>
+<p>对静态变量可以进行读写，是因为在block声明时，将静态变量的内存地址传到block中。</p>
+<p>__block修饰局部变量后，在block中可以获取到局部变量的内存地址，可以通过获取内存地址改变局部变量的值。</p>
+<p>没有__block修饰局部变量，在block中只是获取到局部变量的值并保存，没有能力进行修改（写操作）。</p>
+<h3 id="Block的存储域"><a href="#Block的存储域" class="headerlink" title="Block的存储域"></a>Block的存储域</h3><p>Block 有三种类型：</p>
+<p>__NSConcreteStackBlock ————————栈中</p>
+<p>__NSConcreteGlobalBlock ————————数据区域中</p>
+<p>__NSConcreteMallocBlock ————————堆中</p>
+<p>1.手动调用copy<br>2.Block是函数的返回值<br>3.Block被强引用，Block被赋值给__strong或者id类型<br>4.调用系统API入参中含有usingBlcok的方法</p>
+<p>以上4种情况，系统都会默认调用copy方法把Block赋复制</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于非对象的变量来说，</p>
+<p>自动变量的值，被copy进了Block，不带__block的自动变量只能在里面被访问，并不能改变值。</p>
+<p>带__block的自动变量 和 静态变量 就是直接地址访问。所以在Block里面可以直接改变变量的值。</p>
+<p>而剩下的静态全局变量，全局变量，函数参数，也是可以在直接在Block中改变变量值的，但是他们并没有变成Block结构体__main_block_impl_0的成员变量，因为他们的作用域大，所以可以直接更改他们的值。</p>
+<p>值得注意的是，静态全局变量，全局变量，函数参数他们并不会被Block持有，也就是说不会增加retainCount值。</p>
+<p>对于对象来说，</p>
+<p>在MRC环境下，<strong>block根本不会对指针所指向的对象执行copy操作，而只是把指针进行的复制。 </strong></p>
+<p><strong>在ARC环境下，对于声明为</strong>block的外部对象，在block内部会进行retain，以至于在block环境内能安全的引用外部对象。对于没有声明__block的外部对象，在block中也会被retain。</p>
+<h3 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h3><p><a href="http://zhoulingyu.com/2017/02/08/iOS%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94iOS-Memory-Block/" target="_blank" rel="noopener">OS进阶——iOS（Objective-C） 内存管理&amp;Block</a></p>
+<p><a href="https://halfrost.com/ios_block/" target="_blank" rel="noopener">深入研究 Block 捕获外部变量和 __block 实现原理</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cjbutcis100006gqm7hr12vlf" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python学习十" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/31/Python学习十/" class="article-date">
+  <time datetime="2017-12-31T06:27:33.994Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/Python学习十/">Python学习十</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h4><p>List Comprehensions，是Python内置的用来创建list的生成式。</p>
+<p>理解：遍历+处理+判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表生成式</span></span><br><span class="line"><span class="comment"># 从2到10 不包含11</span></span><br><span class="line">l = list(range(<span class="number">2</span>,<span class="number">11</span>))</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成[1x1, 2x2, 3x3, ..., 10x10]</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选出仅偶数的平方</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 两层循环</span></span><br><span class="line">l = [m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'qwe'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'asd'</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出当前目录下的所有文件和目录名</span></span><br><span class="line">l = [d <span class="keyword">for</span> d <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用两个变量来生成list</span></span><br><span class="line">d = &#123;<span class="string">'x'</span>: <span class="string">'A'</span>, <span class="string">'y'</span>: <span class="string">'B'</span>, <span class="string">'z'</span>: <span class="string">'C'</span> &#125;</span><br><span class="line">l = [k + <span class="string">'='</span> + v <span class="keyword">for</span> k,v <span class="keyword">in</span> d.items()]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有的字符串变成小写</span></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="string">'IBM'</span>, <span class="string">'Apple'</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="number">18</span>, <span class="string">'Apple'</span>, <span class="keyword">None</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1 <span class="keyword">if</span> isinstance(s,str)]</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjbutciu4000b6gqmq3zp5smv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python学习九" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/30/Python学习九/" class="article-date">
   <time datetime="2017-12-30T09:53:03.805Z" itemprop="datePublished">2017-12-30</time>
 </a>
     
@@ -76,7 +182,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/30/title- Python学习九/">Python学习九</a>
+      <a class="article-title" href="/2017/12/30/Python学习九/">Python学习九</a>
     </h1>
   
 
@@ -90,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/title- Python学习九/" data-id="cjbt73ups0004s7qmsy92ee8h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjbutciu9000e6gqmj6n6zo43" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -130,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjbt73uq70006s7qmodxkwmba" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjbutcity00086gqmgp2bjnba" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -315,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjbt73ur1000fs7qmnnqfh8lc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjbutcist00036gqm16fl1xlu" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -362,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjbt73uqg0008s7qmf3p5iypv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjbutcitv00076gqm2pjx8sl4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -418,7 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbt73uqr000cs7qm8ambto4d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjbutciud000g6gqmjhfzvw8p" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -463,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbt73upq0003s7qm1hl60276" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjbutcita00066gqm6mgsuonf" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -506,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbt73uq50005s7qmi4uk79iu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjbutciu5000c6gqm3idvcj43" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -545,98 +651,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbt73uqv000ds7qm6ou0vwwp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/25/Python学习二/" class="article-date">
-  <time datetime="2017-12-25T13:18:09.807Z" itemprop="datePublished">2017-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Python学习二/">Python学习二</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = input()</span><br><span class="line">print(<span class="string">'Hello,'</span>, name)</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>整形：精确，没有大小限制， / 除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.3333333333333335</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure>
-<p>还有一种除法是 // ，称为地板除，两个整数的除法仍然是整数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> // <span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>取余：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> % <span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>浮点数：有四舍五入，没有大小限制</p>
-<p>字符串：转义字符  \ ，\n表示换行，\t表示制表符，\表示字符\。</p>
-<p>布尔值：只有True、False，布尔值可以用and（与）、or（或）和not（非）运算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">'adult'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'teenager'</span>)</span><br></pre></td></tr></table></figure>
-<p>空值：None</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>可以是任意数据类型，必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
-<p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量就是不能变的变量，通常用全部大写的变量名表示常量</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjbt73upn0002s7qmkgtb87w0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/24/Python学习一/" class="article-date">
-  <time datetime="2017-12-24T15:52:31.694Z" itemprop="datePublished">2017-12-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/Python学习一/">Python学习一</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h3><p><a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2" target="_blank" rel="noopener">https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2</a></p>
-<h3 id="PyCharm使用Python3"><a href="#PyCharm使用Python3" class="headerlink" title="PyCharm使用Python3"></a>PyCharm使用Python3</h3><p><a href="https://www.jianshu.com/p/1a002847265e" target="_blank" rel="noopener">https://www.jianshu.com/p/1a002847265e</a></p>
-<p>第一行Python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjbt73uox0001s7qmrlweygkd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjbutcisf00016gqm039detct" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -650,7 +665,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -667,7 +682,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -677,12 +692,20 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/12/30/title- Python学习九/">Python学习九</a>
+            <a href="/2017/12/31/Block研究总结/">Block研究总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/31/Python学习十/">Python学习十</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Python学习九/">Python学习九</a>
           </li>
         
           <li>
@@ -691,14 +714,6 @@
         
           <li>
             <a href="/2017/12/29/Python学习七/">Python学习七</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/28/Python学习六/">Python学习六</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/27/监测内存泄露记录/">监测内存泄露记录</a>
           </li>
         
       </ul>

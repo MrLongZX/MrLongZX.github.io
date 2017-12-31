@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python学习十 | MrLong的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="列表生成式List Comprehensions，是Python内置的用来创建list的生成式。 理解：遍历+处理+判断 12345678910111213141516171819202122232425262728293031323334# 列表生成式# 从2到10 不包含11l = list(range(2,11))print(l)# 生成[1x1, 2x2, 3x3, ..., 10x10]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习十">
+<meta property="og:url" content="http://yoursite.com/2017/12/31/Python学习十/index.html">
+<meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="列表生成式List Comprehensions，是Python内置的用来创建list的生成式。 理解：遍历+处理+判断 12345678910111213141516171819202122232425262728293031323334# 列表生成式# 从2到10 不包含11l = list(range(2,11))print(l)# 生成[1x1, 2x2, 3x3, ..., 10x10]">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-31T07:28:02.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习十">
+<meta name="twitter:description" content="列表生成式List Comprehensions，是Python内置的用来创建list的生成式。 理解：遍历+处理+判断 12345678910111213141516171819202122232425262728293031323334# 列表生成式# 从2到10 不包含11l = list(range(2,11))print(l)# 生成[1x1, 2x2, 3x3, ..., 10x10]">
+  
+    <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MrLong的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python学习十" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/31/Python学习十/" class="article-date">
+  <time datetime="2017-12-31T06:27:33.994Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python学习十
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h4><p>List Comprehensions，是Python内置的用来创建list的生成式。</p>
+<p>理解：遍历+处理+判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表生成式</span></span><br><span class="line"><span class="comment"># 从2到10 不包含11</span></span><br><span class="line">l = list(range(<span class="number">2</span>,<span class="number">11</span>))</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成[1x1, 2x2, 3x3, ..., 10x10]</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选出仅偶数的平方</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 两层循环</span></span><br><span class="line">l = [m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'qwe'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'asd'</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出当前目录下的所有文件和目录名</span></span><br><span class="line">l = [d <span class="keyword">for</span> d <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用两个变量来生成list</span></span><br><span class="line">d = &#123;<span class="string">'x'</span>: <span class="string">'A'</span>, <span class="string">'y'</span>: <span class="string">'B'</span>, <span class="string">'z'</span>: <span class="string">'C'</span> &#125;</span><br><span class="line">l = [k + <span class="string">'='</span> + v <span class="keyword">for</span> k,v <span class="keyword">in</span> d.items()]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有的字符串变成小写</span></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="string">'IBM'</span>, <span class="string">'Apple'</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="number">18</span>, <span class="string">'Apple'</span>, <span class="keyword">None</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1 <span class="keyword">if</span> isinstance(s,str)]</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjbutciu4000b6gqmq3zp5smv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/31/Block研究总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Block研究总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/30/Python学习九/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Python学习九</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/31/Block研究总结/">Block研究总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/31/Python学习十/">Python学习十</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Python学习九/">Python学习九</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Python学习八/">Python学习八</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/Python学习七/">Python学习七</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 SYL<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
