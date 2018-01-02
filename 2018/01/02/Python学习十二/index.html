@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python学习十二 | MrLong的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="迭代器可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator，表示一个惰性计算的序列: 生成器 可以直接作用于for循环的对象统称为可迭代对象：Iterable： list、tuple、dict、set、str、生成器 12345678910111213141516171819202122232425# 判断是否是可迭代对象from collections import I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习十二">
+<meta property="og:url" content="http://yoursite.com/2018/01/02/Python学习十二/index.html">
+<meta property="og:site_name" content="MrLong的博客">
+<meta property="og:description" content="迭代器可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator，表示一个惰性计算的序列: 生成器 可以直接作用于for循环的对象统称为可迭代对象：Iterable： list、tuple、dict、set、str、生成器 12345678910111213141516171819202122232425# 判断是否是可迭代对象from collections import I">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-02T12:31:56.737Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习十二">
+<meta name="twitter:description" content="迭代器可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator，表示一个惰性计算的序列: 生成器 可以直接作用于for循环的对象统称为可迭代对象：Iterable： list、tuple、dict、set、str、生成器 12345678910111213141516171819202122232425# 判断是否是可迭代对象from collections import I">
+  
+    <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MrLong的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python学习十二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/02/Python学习十二/" class="article-date">
+  <time datetime="2018-01-02T12:05:35.618Z" itemprop="datePublished">2018-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python学习十二
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>可以被<code>next()</code>函数调用并不断返回下一个值的对象称为迭代器：<code>Iterator</code>，表示一个惰性计算的序列:</p>
+<p><code>生成器</code></p>
+<p>可以直接作用于<code>for</code>循环的对象统称为可迭代对象：<code>Iterable</code>：</p>
+<p><code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>、<code>生成器</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否是可迭代对象</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line">print(isinstance([], Iterable))</span><br><span class="line">print(isinstance((), Iterable))</span><br><span class="line">print(isinstance(&#123;&#125;, Iterable))</span><br><span class="line">print(isinstance(set([]), Iterable))</span><br><span class="line">print(isinstance(<span class="string">'abc'</span>, Iterable))</span><br><span class="line">print(isinstance((x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)), Iterable))</span><br><span class="line">print(isinstance(<span class="number">100</span>, Iterable))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是迭代器对象</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator</span><br><span class="line">print(isinstance([], Iterator))</span><br><span class="line">print(isinstance((), Iterator))</span><br><span class="line">print(isinstance(&#123;&#125;, Iterator))</span><br><span class="line">print(isinstance(set([]), Iterator))</span><br><span class="line">print(isinstance(<span class="string">'abc'</span>, Iterator))</span><br><span class="line">print(isinstance((x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)), Iterator))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将可迭代对象 用iter() 转化为迭代器对象</span></span><br><span class="line">print(isinstance(iter([]), Iterator))</span><br><span class="line">print(isinstance(iter(()), Iterator))</span><br><span class="line">print(isinstance(iter(&#123;&#125;), Iterator))</span><br><span class="line">print(isinstance(iter(set([])), Iterator))</span><br><span class="line">print(isinstance(iter(<span class="string">'abc'</span>), Iterator))</span><br></pre></td></tr></table></figure>
+<p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于下面方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先获得Iterator对象:</span></span><br><span class="line">it = iter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># 循环:</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 获得下一个值:</span></span><br><span class="line">        x = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># 遇到StopIteration就退出循环</span></span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十二/" data-id="cjbxm7c9j000aa3qmemjk6ogs" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/02/Python学习十一/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Python学习十一</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/02/Python学习十二/">Python学习十二</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/02/Python学习十一/">Python学习十一</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/31/Block研究总结/">深入学习Block</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/31/Python学习十/">Python学习十</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/30/Python学习九/">Python学习九</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 SYL<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
