@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="MrLong的博客">
 <meta property="og:description" content="简单规则Block 中，Block 表达式截获所使用的自动变量的值，即保存该自动变量的瞬间值。修饰为 __block 的变量，在捕获时，获取的不再是瞬间值。 Block实现block 是带有自动变量（局部变量）的匿名函数。 通过 clang -rewrite-objc yourfile.m clang 将会把 Objective-C 的代码转换成 C 语言的代码，查看源码了解block。 Bloc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-31T13:35:21.972Z">
+<meta property="og:updated_time" content="2018-01-10T14:38:03.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入学习Block">
 <meta name="twitter:description" content="简单规则Block 中，Block 表达式截获所使用的自动变量的值，即保存该自动变量的瞬间值。修饰为 __block 的变量，在捕获时，获取的不再是瞬间值。 Block实现block 是带有自动变量（局部变量）的匿名函数。 通过 clang -rewrite-objc yourfile.m clang 将会把 Objective-C 的代码转换成 C 语言的代码，查看源码了解block。 Bloc">
@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -118,11 +118,12 @@
 <p><strong>在ARC环境下，对于声明为</strong>block的外部对象，在block内部会进行retain，以至于在block环境内能安全的引用外部对象。对于没有声明__block的外部对象，在block中也会被retain。</p>
 <h3 id="学习链接："><a href="#学习链接：" class="headerlink" title="学习链接："></a>学习链接：</h3><p><a href="http://zhoulingyu.com/2017/02/08/iOS%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94iOS-Memory-Block/" target="_blank" rel="noopener">OS进阶——iOS（Objective-C） 内存管理&amp;Block</a></p>
 <p><a href="https://halfrost.com/ios_block/" target="_blank" rel="noopener">深入研究 Block 捕获外部变量和 __block 实现原理</a></p>
+<p><a href="https://halfrost.com/ios_block_retain_circle/" target="_blank" rel="noopener">深入研究 Block 用 weakSelf、strongSelf、@weakify、@strongify 解决循环引用</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cjc6cni9u0000icqmf00wbort" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cjc966wiw0000ckksim303k1o" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -132,7 +133,7 @@
 <nav id="article-nav">
   
     <a href="/2018/01/02/Python学习十一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           Python学习十一
@@ -142,7 +143,7 @@
   
   
     <a href="/2017/12/31/Python学习十/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">Python学习十</div>
     </a>
   
@@ -165,7 +166,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -175,7 +176,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
