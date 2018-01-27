@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="MrLong的博客">
 <meta property="og:description" content="Instruments-Leaks使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。 摘录： 一个 app 的内存分三类： Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Le">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-27T14:12:50.153Z">
+<meta property="og:updated_time" content="2018-01-27T15:25:18.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="监测内存泄露记录">
 <meta name="twitter:description" content="Instruments-Leaks使用Leaks发现应用AFN的内存泄露，但其他地方发现的不多，而且需要做很多操作。 摘录： 一个 app 的内存分三类： Leaked memory: Memory unreferenced by your application that cannot be used again or freed (also detectable by using the Le">
@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -106,11 +106,17 @@
 <p><a href="http://wereadteam.github.io/2016/07/20/MLeaksFinder2/" target="_blank" rel="noopener">MLeaksFinder 新特性</a></p>
 <p><a href="http://www.cocoachina.com/ios/20170102/18490.html" target="_blank" rel="noopener">iOS 内存泄漏监测自动化</a></p>
 <p><a href="http://ifujun.com/fbmemoryprofiler-shi-yong-ji-chu-jiao-cheng/" target="_blank" rel="noopener">FBMemoryProfiler 基础教程</a></p>
+<p>2018.1.27补充</p>
+<p>OOMDetector是手Q自研的IOS内存监控组件，腾讯内部目前已有多个App接入了OOMDetector，它主要有以下两个功能：</p>
+<p>1.爆内存堆栈统计：负责记录进程内存分配堆栈和内存块大小，在爆内存时Dump堆栈数据到磁盘</p>
+<p>2.内存泄漏检测：检测内存泄漏，目前支持Malloc内存块和OC对象的泄漏检测</p>
+<p><a href="https://github.com/Tencent/OOMDetector" target="_blank" rel="noopener">OOMDetector</a></p>
+<p><a href="https://juejin.im/post/5a58f1a76fb9a01cab283392" target="_blank" rel="noopener">iOS爆内存问题解决方案-OOMDetector组件</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjcw4woee000pbwqm3fwem7xn" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjcxidhxx000nppksjxj7u1yz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,7 +126,7 @@
 <nav id="article-nav">
   
     <a href="/2017/12/28/Python学习六/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nuevo</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Python学习六
@@ -130,7 +136,7 @@
   
   
     <a href="/2017/12/27/Python学习五/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Python学习五</div>
     </a>
   
@@ -153,7 +159,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -163,7 +169,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -200,7 +206,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 SYL<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
