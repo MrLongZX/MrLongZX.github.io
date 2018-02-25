@@ -5,19 +5,15 @@
   
 
   
-  <title>UITableView/UICollectionView使用 | MrLong的博客</title>
+  <title>MrLong的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UITableView/UICollectionView使用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="UITableView&#x2F;UICollectionView使用">
-<meta property="og:url" content="http://yoursite.com/2018/01/27/UITableView:UICollectionView使用/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="MrLong的博客">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="MrLong的博客">
-<meta property="og:description" content="UITableView/UICollectionView使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T16:15:35.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UITableView&#x2F;UICollectionView使用">
-<meta name="twitter:description" content="UITableView/UICollectionView使用">
+<meta name="twitter:title" content="MrLong的博客">
   
     <link rel="alternate" href="/atom.xml" title="MrLong的博客" type="application/atom+xml">
   
@@ -64,10 +60,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UITableView:UICollectionView使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/27/UITableView:UICollectionView使用/" class="article-date">
-  <time datetime="2018-01-26T16:14:04.835Z" itemprop="datePublished">2018-01-27</time>
+    <a href="/2017/12/21/我的第一篇博客/" class="article-date">
+  <time datetime="2017-12-21T09:40:18.983Z" itemprop="datePublished">2017-12-21</time>
 </a>
     
   </div>
@@ -77,8 +75,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      UITableView/UICollectionView使用
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/21/我的第一篇博客/">NSString 移除所有非数字字符 保留空格</a>
     </h1>
   
 
@@ -86,39 +84,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://juejin.im/post/5a6804f66fb9a01ca9159c23?utm_source=gold_browser_extension" target="_blank" rel="noopener">UITableView/UICollectionView使用</a></p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@&quot;0123456789 &quot;]</span><br><span class="line"> invertedSet ];</span><br><span class="line"></span><br><span class="line">NSString *newString = [[someString componentsSeparatedByCharactersInSet:setToRemove]</span><br><span class="line"> componentsJoinedByString:@&quot;”];</span><br></pre></td></tr></table></figure>
+<p>代码逻辑：<br>characterSetWithCharactersInString:方法 设置需要过滤的字符集<br>invertedSet:方法 取反字符 变为想要保留的字符集</p>
+<p>componentsSeparatedByCharactersInSet:方法 根据字符集去除不是字符集中的字符，生成一个数组<br>componentsJoinedByString:方法 将数组中的字符连接 生成字符串</p>
+<h3 id="NSCharacterSet、NSMutableCharacterSet"><a href="#NSCharacterSet、NSMutableCharacterSet" class="headerlink" title="NSCharacterSet、NSMutableCharacterSet"></a>NSCharacterSet、NSMutableCharacterSet</h3><p>1、用面向对象的方式来表示一组Unicode字符。<br>2、它经常与NSString及NSScanner组合起来使用，<font color="red">在不同的字符上做过滤、删除或者分割操作</font>。<br>3、NSCharacterset是无需字符集合，主要用来判断已知字符串是否包含制定字符集，而不可以用来保存字符串。</p>
+<p>学习链接：<br><a href="http://blog.csdn.net/longshihua/article/details/50468910" target="_blank" rel="noopener">http://blog.csdn.net/longshihua/article/details/50468910</a></p>
+<p><a href="http://blog.csdn.net/zhongad007/article/details/77834341" target="_blank" rel="noopener">http://blog.csdn.net/zhongad007/article/details/77834341</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/27/UITableView:UICollectionView使用/" data-id="cje2wt75i000mswqm7wt9wgv3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cje2wt75l000oswqmrj9tmasn" class="article-share-link">Teilen</a>
       
       
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2018/01/27/Runtime学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Runtime学习
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/01/21/动态库使用问题记录/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">动态库使用问题记录</div>
-    </a>
-  
-</nav>
+</article>
+
 
   
-</article>
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
 
 </section>
         
