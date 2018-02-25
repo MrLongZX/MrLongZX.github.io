@@ -62,6 +62,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python学习十二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/02/Python学习十二/" class="article-date">
+  <time datetime="2018-01-02T12:05:35.618Z" itemprop="datePublished">2018-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/02/Python学习十二/">Python学习十二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>可以被<code>next()</code>函数调用并不断返回下一个值的对象称为迭代器：<code>Iterator</code>，表示一个惰性计算的序列:</p>
+<p><code>生成器</code></p>
+<p>可以直接作用于<code>for</code>循环的对象统称为可迭代对象：<code>Iterable</code>：</p>
+<p><code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>、<code>生成器</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否是可迭代对象</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line">print(isinstance([], Iterable))</span><br><span class="line">print(isinstance((), Iterable))</span><br><span class="line">print(isinstance(&#123;&#125;, Iterable))</span><br><span class="line">print(isinstance(set([]), Iterable))</span><br><span class="line">print(isinstance(<span class="string">'abc'</span>, Iterable))</span><br><span class="line">print(isinstance((x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)), Iterable))</span><br><span class="line">print(isinstance(<span class="number">100</span>, Iterable))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否是迭代器对象</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterator</span><br><span class="line">print(isinstance([], Iterator))</span><br><span class="line">print(isinstance((), Iterator))</span><br><span class="line">print(isinstance(&#123;&#125;, Iterator))</span><br><span class="line">print(isinstance(set([]), Iterator))</span><br><span class="line">print(isinstance(<span class="string">'abc'</span>, Iterator))</span><br><span class="line">print(isinstance((x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)), Iterator))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将可迭代对象 用iter() 转化为迭代器对象</span></span><br><span class="line">print(isinstance(iter([]), Iterator))</span><br><span class="line">print(isinstance(iter(()), Iterator))</span><br><span class="line">print(isinstance(iter(&#123;&#125;), Iterator))</span><br><span class="line">print(isinstance(iter(set([])), Iterator))</span><br><span class="line">print(isinstance(iter(<span class="string">'abc'</span>), Iterator))</span><br></pre></td></tr></table></figure>
+<p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于下面方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先获得Iterator对象:</span></span><br><span class="line">it = iter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="comment"># 循环:</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 获得下一个值:</span></span><br><span class="line">        x = next(it)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="comment"># 遇到StopIteration就退出循环</span></span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十二/" data-id="cje2w2b9h000fh4qmnb833cdj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python学习十一" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/02/Python学习十一/" class="article-date">
@@ -96,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/Python学习十一/" data-id="cjcxidhx0000bppkseq7zp298" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十一/" data-id="cje2w2b9d000dh4qmmwmy1m9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cjcxidhuf0000ppks8i1n8njf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cje2w2b7t0000h4qmq0q0yd1r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjcxidhwy000appkspee1qfkx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cje2w2b99000bh4qmz2y8rxjc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjcxidhwn0005ppkskzh8y1r9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cje2w2b8w0006h4qmx1ixsftg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjcxidhws0007ppksqb0tmc08" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cje2w2b97000ah4qmm3eeauvi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,7 +509,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjcxidhwf0004ppks7ogng9pa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cje2w2b910007h4qmpexzudbf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjcxidhxo000jppkszbrf2mod" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cje2w2b9a000ch4qmyzfzcu6a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjcxidhxx000nppksjxj7u1yz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cje2w2ba5000th4qm4usyfngm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -620,50 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjcxidhwu0008ppksu112x7la" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习四" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/26/Python学习四/" class="article-date">
-  <time datetime="2017-12-26T15:30:22.422Z" itemprop="datePublished">2017-12-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/Python学习四/">Python学习四</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Python学习四"><a href="#Python学习四" class="headerlink" title="Python学习四"></a>Python学习四</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>一个可变有序列表，元素类型可以不同，可以包含另一个list，可以随时添加和删除其中的元素。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classmates = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
-<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>元组，有序列表，一旦初始化不能修改，在定义的时候，tuple的元素就必须被确定下来，tuple中的list元素还是可以改变数据的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classmates = (<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &lt;条件判断<span class="number">1</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">1</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">2</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">2</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">3</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">3</span>&gt;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    &lt;执行<span class="number">4</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>for、while、break、continue。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">names = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]</span><br><span class="line">for name in names:</span><br><span class="line">    print(name)</span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">sum = 0</span><br><span class="line">n = 99</span><br><span class="line">while n &gt; 0:</span><br><span class="line">    sum = sum + n</span><br><span class="line">    n = n - 2</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjcxidhx1000cppkskkjnas08" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cje2w2b960009h4qmrxjr3gzl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -709,6 +709,10 @@
       <ul>
         
           <li>
+            <a href="/2018/01/28/MVVM + RAC + ViewModel-Based Navigation/">MVVM + RAC + ViewModel-Based Navigation学习记录</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/27/Runtime学习/">Runtime学习</a>
           </li>
         
@@ -722,10 +726,6 @@
         
           <li>
             <a href="/2018/01/13/Xcode快捷键/">Xcode常用快捷键</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/11/Objective-C Runtime 运行时之一：类与对象/">Objective-C Runtime 运行时之一：类与对象</a>
           </li>
         
       </ul>
