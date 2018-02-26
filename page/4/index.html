@@ -62,6 +62,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-搭建博客过程记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/21/搭建博客过程记录/" class="article-date">
+  <time datetime="2017-12-21T11:16:31.200Z" itemprop="datePublished">2017-12-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/21/搭建博客过程记录/">搭建博客过程记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据这篇文章<a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">5分钟 搭建免费个人博客</a>，搭建了自己的博客，搭建过程中遇到了几个问题，在此记录下</p>
+<p>1.在执行完</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>命令后，在浏览器中<a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a>无法访问我的本地博客，而输入<a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a>则可以访问</p>
+<p>2.关闭执行完</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>命令终端窗口后，在新终端窗口根目录下，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>命令出错，在</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 博客名称.github.io</span><br></pre></td></tr></table></figure>
+<p>文件下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>命令就可以了。</p>
+<p>3.在执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>后，出现“error deployer not found:git”错误，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>可以解决这一问题，好像是自己没有按照博客输入这一句造成的。</p>
+<p>问题记录完毕。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cje4c21ze000vu2qmunt0jh7n" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/21/我的第一篇博客/" class="article-date">
@@ -94,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cje2wt75l000oswqmrj9tmasn" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cje4c21z6000qu2qmnjbvumo2" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -140,6 +195,10 @@
       <ul>
         
           <li>
+            <a href="/2018/02/26/代码块/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/25/2018我的目标/">2018我的目标</a>
           </li>
         
@@ -153,10 +212,6 @@
         
           <li>
             <a href="/2018/01/27/UITableView:UICollectionView使用/">UITableView/UICollectionView使用</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/21/动态库使用问题记录/">动态库使用问题记录</a>
           </li>
         
       </ul>
