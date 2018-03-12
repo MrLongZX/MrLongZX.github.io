@@ -62,6 +62,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python学习十三 ~ map:reduce" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/07/Python学习十三 ~ map:reduce/" class="article-date">
+  <time datetime="2018-01-07T13:56:40.956Z" itemprop="datePublished">2018-01-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/07/Python学习十三 ~ map:reduce/">Python学习十三 ~ map/reduce</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python内建了<code>map()</code>和<code>reduce()</code>函数。是高阶函数，把运算规则抽象。</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p><code>map()</code>函数接收两个参数，一个是函数，只接受一个参数，一个是<code>Iterable(可迭代对象)</code>，<code>map</code>将传入的函数依次作用到序列的每个元素，并把结果作为新的<code>Iterator(迭代器)</code>返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># map()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br><span class="line"></span><br><span class="line"><span class="comment"># r是一个Iterator，Iterator是惰性序列，可以通过list()函数让它把整个序列都计算出来并返回一个list。</span></span><br><span class="line">m = map(f, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">print(list(m))</span><br><span class="line"></span><br><span class="line">m = map(str, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">print(list(m))</span><br></pre></td></tr></table></figure>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h3><p><code>reduce</code>函数接收两个参数，一个是函数，必须接受两个参数，一个是<code>Iterable(可迭代对象)</code>，把函数作用在一个序列每个元素上，<code>reduce</code>把结果继续和序列的下一个元素做累积计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reduce</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span>  x + y</span><br><span class="line"></span><br><span class="line">r = reduce(add, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,])</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span> * x + y</span><br><span class="line"></span><br><span class="line">r = reduce(fn, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line">DIGITS = &#123;<span class="string">'0'</span>: <span class="number">0</span>, <span class="string">'1'</span>: <span class="number">1</span>, <span class="string">'2'</span>: <span class="number">2</span>, <span class="string">'3'</span>: <span class="number">3</span>, <span class="string">'4'</span>: <span class="number">4</span>, <span class="string">'5'</span>: <span class="number">5</span>, <span class="string">'6'</span>: <span class="number">6</span>, <span class="string">'7'</span>: <span class="number">7</span>, <span class="string">'8'</span>: <span class="number">8</span>, <span class="string">'9'</span>: <span class="number">9</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strInt</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x * <span class="number">10</span> + y</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">charNum</span><span class="params">(s)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> DIGITS[s]</span><br><span class="line">    <span class="keyword">return</span> reduce(fn, map(charNum, s))</span><br><span class="line"></span><br><span class="line">print(strInt(<span class="string">'123456'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># lambda函数简化</span></span><br><span class="line">DIGITS = &#123;<span class="string">'0'</span>: <span class="number">0</span>, <span class="string">'1'</span>: <span class="number">1</span>, <span class="string">'2'</span>: <span class="number">2</span>, <span class="string">'3'</span>: <span class="number">3</span>, <span class="string">'4'</span>: <span class="number">4</span>, <span class="string">'5'</span>: <span class="number">5</span>, <span class="string">'6'</span>: <span class="number">6</span>, <span class="string">'7'</span>: <span class="number">7</span>, <span class="string">'8'</span>: <span class="number">8</span>, <span class="string">'9'</span>: <span class="number">9</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">charNum</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> DIGITS[s]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strInt</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x, y: x * <span class="number">10</span> + y, map(charNum, s))</span><br><span class="line"></span><br><span class="line">print(strInt(<span class="string">'1234567'</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 练习题</span></span><br><span class="line">names =  [<span class="string">'adam'</span>, <span class="string">'LISA'</span>, <span class="string">'barT'</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalize_custom</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> name[:<span class="number">1</span>].upper() + name[<span class="number">1</span>:].lower()</span><br><span class="line"></span><br><span class="line">print(list(map(normalize_custom, names)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prod</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x, y: x * y, l)</span><br><span class="line"></span><br><span class="line">print(prod([<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/07/Python学习十三 ~ map:reduce/" data-id="cjeodkjwe000ee0ks8iww86b5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-UINavigationBar整理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/07/UINavigationBar整理/" class="article-date">
@@ -88,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/UINavigationBar整理/" data-id="cje4c5txa000k5qqm6w79hwt3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/07/UINavigationBar整理/" data-id="cjeodkjwr000je0kskfkvtq9y" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -124,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/UISearchBar整理/" data-id="cje4c5tx7000j5qqmo6o4n68i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/07/UISearchBar整理/" data-id="cjeodkjws000ke0ksi6ms8lvq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -167,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/Python学习十二/" data-id="cje4c5tx4000h5qqmipqbxp1t" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十二/" data-id="cjeodkjwm000he0ksty62hkk3" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -211,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/02/Python学习十一/" data-id="cje4c5twv000e5qqmpn84cl93" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十一/" data-id="cjeodkjwk000ge0ksswdmqxd8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -280,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cje4c5tvu00015qqmsitf1jwn" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cjeodkjvg0001e0kszld1fevf" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -318,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cje4c5twt000d5qqmbh707vwl" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjeodkjwb000de0kstf8eqbs6" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -356,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cje4c5twj00085qqm32ah8xzo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjeodkjvz0007e0ks3rdtm7y1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -396,7 +438,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cje4c5twr000c5qqm2jgq61cl" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjeodkjw20009e0ksy8c0pmik" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -581,54 +623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cje4c5twf00065qqmr2zugv0u" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习六" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/28/Python学习六/" class="article-date">
-  <time datetime="2017-12-28T12:18:13.875Z" itemprop="datePublished">2017-12-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/28/Python学习六/">Python学习六</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>Python内置了很多有用的函数，我们可以直接调用。</p>
-<p>绝对值的函数abs()、max()、int()、float()、str()、bool()、hex()。</p>
-<p><a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener">更多</a></p>
-<h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p>定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。</p>
-<p>如果没有<code>return</code>语句，函数执行完毕后也会返回结果，只是结果为<code>None</code>。<code>return None</code>可以简写为<code>return</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> -x</span><br></pre></td></tr></table></figure>
-<p>from abstest import my_abs，从abstest.py文件加载my_abs函数</p>
-<p>空函数：<code>pass</code>语句什么都不做，<code>pass</code>可以用来作为占位符</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>python可以返回多个值，其实就是返回一个tuple</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(x, y, step, angle=<span class="number">0</span>)</span>:</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br><span class="line">  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(x, y)</span><br><span class="line"><span class="number">151.96152422706632</span> <span class="number">70.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(r)</span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cje4c5twn000b5qqmp1uosk0p" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjeodkjw4000ae0ks9v9vutw0" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -674,6 +669,10 @@
       <ul>
         
           <li>
+            <a href="/2018/02/27/面试相关/">面试题相关</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/26/代码块/">代码块</a>
           </li>
         
@@ -687,10 +686,6 @@
         
           <li>
             <a href="/2018/01/27/Runtime学习/">Runtime学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/27/UITableView:UICollectionView使用/">UITableView/UICollectionView使用</a>
           </li>
         
       </ul>
