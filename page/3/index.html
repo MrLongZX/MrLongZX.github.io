@@ -62,6 +62,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python学习十" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/31/Python学习十/" class="article-date">
+  <time datetime="2017-12-31T06:27:33.994Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/Python学习十/">Python学习十</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h4><p>List Comprehensions，是Python内置的用来创建list的生成式。</p>
+<p>理解：遍历+处理+判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表生成式</span></span><br><span class="line"><span class="comment"># 从2到10 不包含11</span></span><br><span class="line">l = list(range(<span class="number">2</span>,<span class="number">11</span>))</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成[1x1, 2x2, 3x3, ..., 10x10]</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选出仅偶数的平方</span></span><br><span class="line">l = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 两层循环</span></span><br><span class="line">l = [m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'qwe'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'asd'</span>]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出当前目录下的所有文件和目录名</span></span><br><span class="line">l = [d <span class="keyword">for</span> d <span class="keyword">in</span> os.listdir(<span class="string">'.'</span>)]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用两个变量来生成list</span></span><br><span class="line">d = &#123;<span class="string">'x'</span>: <span class="string">'A'</span>, <span class="string">'y'</span>: <span class="string">'B'</span>, <span class="string">'z'</span>: <span class="string">'C'</span> &#125;</span><br><span class="line">l = [k + <span class="string">'='</span> + v <span class="keyword">for</span> k,v <span class="keyword">in</span> d.items()]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有的字符串变成小写</span></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="string">'IBM'</span>, <span class="string">'Apple'</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1]</span><br><span class="line">print(l)</span><br><span class="line"></span><br><span class="line">l1 = [<span class="string">'Hello'</span>, <span class="string">'World'</span>, <span class="number">18</span>, <span class="string">'Apple'</span>, <span class="keyword">None</span>]</span><br><span class="line">l = [s.lower() <span class="keyword">for</span> s <span class="keyword">in</span> l1 <span class="keyword">if</span> isinstance(s,str)]</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjht9b26m000dq2tbdp9muieo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python学习九" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/30/Python学习九/" class="article-date">
@@ -90,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjhqfsjhf0008kmkskshskyky" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjht9b26c0008q2tbiyixlkim" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -130,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjhqfsjhj000akmksfhpyt7s2" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjht9b26e0009q2tbw3flk2ig" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -315,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjhqfsjhc0006kmkswjk5t801" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjht9b2690006q2tbxqr3tl82" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -362,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjhqfsjht000hkmksx7u815cd" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjht9b26l000cq2tbj5dobnfk" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -424,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjhqfsjif000vkmksd0ssxpo4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjht9b27o000yq2tbc2s9784y" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -469,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjhqfsjhg0009kmksk9txauqd" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjht9b26j000bq2tbtzc4fqn8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -512,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjhqfsjhu000ikmks9goqd9pb" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjht9b26s000hq2tbu145mri4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -551,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjhqfsjha0005kmksnvpbtm3l" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjht9b26a0007q2tbxqkm6wig" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -602,47 +640,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjhqfsjhl000bkmksg3lsvdxh" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/24/Python学习一/" class="article-date">
-  <time datetime="2017-12-24T15:52:31.694Z" itemprop="datePublished">2017-12-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/Python学习一/">Python学习一</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h3><p><a href="https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2" target="_blank" rel="noopener">https://stringpiggy.hpd.io/mac-osx-python3-dual-install/#step2</a></p>
-<h3 id="PyCharm使用Python3"><a href="#PyCharm使用Python3" class="headerlink" title="PyCharm使用Python3"></a>PyCharm使用Python3</h3><p><a href="https://www.jianshu.com/p/1a002847265e" target="_blank" rel="noopener">https://www.jianshu.com/p/1a002847265e</a></p>
-<p>第一行Python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> (<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjhqfsjh30004kmks4o0iytvb" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjht9b26h000aq2tbu68sv440" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -688,6 +686,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/29/UICollectionView自定义布局/">UICollectionView自定义布局</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/28/RunLoop学习记录/">RunLoop学习记录</a>
           </li>
         
@@ -701,10 +703,6 @@
         
           <li>
             <a href="/2018/04/02/CoreText/">CoreText学习记录</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/27/面试相关/">面试题相关</a>
           </li>
         
       </ul>
