@@ -62,6 +62,119 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python学习十一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/02/Python学习十一/" class="article-date">
+  <time datetime="2018-01-02T11:34:10.074Z" itemprop="datePublished">2018-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/02/Python学习十一/">Python学习十一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>按照某种算法推算出列表元素，在循环的过程中不断推算出后续的元素，这样就不必创建完整的list，从而节省大量的空间。</p>
+<p>在Python中，这种一边循环一边计算的机制，称为生成器：generator。</p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>把一个列表生成式的<code>[]</code>改成<code>()</code>，就创建了一个generator</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成器</span></span><br><span class="line">g = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> g:</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>一个函数定义中包含<code>yield</code>关键字，那么这个函数就不再是一个普通函数，而是一个generator。</p>
+<h5 id="函数和生成器区别"><a href="#函数和生成器区别" class="headerlink" title="函数和生成器区别"></a>函数和生成器区别</h5><p>函数是顺序执行，遇到<code>return</code>语句或者最后一行函数语句就返回。</p>
+<p>generator的函数，在每次调用<code>next()</code>的时候执行，遇到<code>yield</code>语句返回，再次执行时从上次返回的<code>yield</code>语句处继续执行。</p>
+<h5 id="生成器原理"><a href="#生成器原理" class="headerlink" title="生成器原理"></a>生成器原理</h5><p>在<code>for</code>循环的过程中不断计算出下一个元素，并在适当的条件结束<code>for</code>循环。对于函数改成的generator来说，遇到<code>return</code>语句或者执行到函数体最后一行语句，就是结束generator的指令，<code>for</code>循环随之结束。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(max)</span>:</span></span><br><span class="line">    n,a,b = <span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; max:</span><br><span class="line">        <span class="keyword">yield</span> b</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'done'</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># x 为yield后面b的值</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> fib(<span class="number">6</span>):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/02/Python学习十一/" data-id="cji1w4a4c000e5ikssndr5ysp" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Block研究总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/31/Block研究总结/" class="article-date">
+  <time datetime="2017-12-31T07:37:51.996Z" itemprop="datePublished">2017-12-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/Block研究总结/">深入学习Block</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简单规则"><a href="#简单规则" class="headerlink" title="简单规则"></a>简单规则</h3><p>Block 中，Block <strong>表达式截获</strong>所使用的自动变量的值，即保存该自动变量的<strong>瞬间值</strong>。<br>修饰为 <code>__block</code> 的变量，在捕获时，获取的<strong>不再是瞬间值</strong>。</p>
+<h3 id="Block实现"><a href="#Block实现" class="headerlink" title="Block实现"></a>Block实现</h3><p>block 是带有自动变量（局部变量）的匿名函数。</p>
+<p>通过 <code>clang -rewrite-objc yourfile.m</code> clang 将会把 Objective-C 的代码转换成 C 语言的代码，查看源码了解block。</p>
+<h3 id="Block-截获外部自动变量（局部变量）"><a href="#Block-截获外部自动变量（局部变量）" class="headerlink" title="Block 截获外部自动变量（局部变量）"></a>Block 截获外部自动变量（局部变量）</h3><p>在 block 被声明时，block 会将在block中用到的自动变量（局部变量） 作为block的 的内部变量保存下来了。</p>
+<p>所以无论在在声明之后怎样更改 这个自动变量 的值，都不会影响。</p>
+<p>block 调用时访问的是block内部保存的自定变量值。</p>
+<p>这就是 Block 捕获变量瞬间值的原理。</p>
+<h3 id="Block对外部变量的读写"><a href="#Block对外部变量的读写" class="headerlink" title="Block对外部变量的读写"></a>Block对外部变量的读写</h3><p> block 能读写以下几种变量：</p>
+<p>静态变量</p>
+<p>静态全局变量</p>
+<p>全局变量</p>
+<p>对局部变量只读，局部变量增加 __block 修饰后，就也可以进行写操作。</p>
+<h4 id="可以进行读写的原因"><a href="#可以进行读写的原因" class="headerlink" title="可以进行读写的原因"></a>可以进行读写的原因</h4><p>对全局变量、静态全局变量可以读写，是因为作用域大，block中可以直接获取内存地址。</p>
+<p>对静态变量可以进行读写，是因为在block声明时，将静态变量的内存地址传到block中。</p>
+<p>__block修饰局部变量后，在block中可以获取到局部变量的内存地址，可以通过获取内存地址改变局部变量的值。</p>
+<p>没有__block修饰局部变量，在block中只是获取到局部变量的值并保存，没有能力进行修改（写操作）。</p>
+<h3 id="Block的存储域"><a href="#Block的存储域" class="headerlink" title="Block的存储域"></a>Block的存储域</h3><p>Block 有三种类型：</p>
+<p>__NSConcreteStackBlock ————————栈中</p>
+<p>__NSConcreteGlobalBlock ————————数据区域中</p>
+<p>__NSConcreteMallocBlock ————————堆中</p>
+<p>1.手动调用copy<br>2.Block是函数的返回值<br>3.Block被强引用，Block被赋值给__strong或者id类型<br>4.调用系统API入参中含有usingBlcok的方法</p>
+<p>以上4种情况，系统都会默认调用copy方法把Block赋复制</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>对于非对象的变量来说，</p>
+<p>自动变量的值，被copy进了Block，不带__block的自动变量只能在里面被访问，并不能改变值。</p>
+<p>带__block的自动变量 和 静态变量 就是直接地址访问。所以在Block里面可以直接改变变量的值。</p>
+<p>而剩下的静态全局变量，全局变量，函数参数，也是可以在直接在Block中改变变量值的，但是他们并没有变成Block结构体__main_block_impl_0的成员变量，因为他们的作用域大，所以可以直接更改他们的值。</p>
+<p>值得注意的是，静态全局变量，全局变量，函数参数他们并不会被Block持有，也就是说不会增加retainCount值。</p>
+<p>对于对象来说，</p>
+<p>在MRC环境下，<strong>block根本不会对指针所指向的对象执行copy操作，而只是把指针进行的复制。 </strong></p>
+<p><strong>在ARC环境下，对于声明为</strong>block的外部对象，在block内部会进行retain，以至于在block环境内能安全的引用外部对象。对于没有声明__block的外部对象，在block中也会被retain。</p>
+<h3 id="学习链接："><a href="#学习链接：" class="headerlink" title="学习链接："></a>学习链接：</h3><p><a href="http://zhoulingyu.com/2017/02/08/iOS%E8%BF%9B%E9%98%B6%E2%80%94%E2%80%94iOS-Memory-Block/" target="_blank" rel="noopener">OS进阶——iOS（Objective-C） 内存管理&amp;Block</a></p>
+<p><a href="https://halfrost.com/ios_block/" target="_blank" rel="noopener">深入研究 Block 捕获外部变量和 __block 实现原理</a></p>
+<p><a href="https://halfrost.com/ios_block_retain_circle/" target="_blank" rel="noopener">深入研究 Block 用 weakSelf、strongSelf、@weakify、@strongify 解决循环引用</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/31/Block研究总结/" data-id="cji1w4a3g00015iks4pqx10k2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python学习十" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/31/Python学习十/" class="article-date">
@@ -90,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cjht9b26m000dq2tbdp9muieo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/31/Python学习十/" data-id="cji1w4a4a000d5iks87jpllu8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -128,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cjht9b26c0008q2tbiyixlkim" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习九/" data-id="cji1w4a4100095ikstlsdpwf9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -168,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cjht9b26e0009q2tbw3flk2ig" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/30/Python学习八/" data-id="cji1w4a43000a5iksbe0okho2" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -353,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cjht9b2690006q2tbxqr3tl82" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/29/Python学习七/" data-id="cji1w4a3y00075iks0qkb3gsu" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -400,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cjht9b26l000cq2tbj5dobnfk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/28/Python学习六/" data-id="cji1w4a46000c5iksdtzo7hej" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -462,7 +575,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cjht9b27o000yq2tbc2s9784y" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/监测内存泄露记录/" data-id="cji1w4a5e00115iks31pauqlf" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -507,7 +620,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cjht9b26j000bq2tbtzc4fqn8" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/Python学习五/" data-id="cji1w4a44000b5iks3psw4xgl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -550,97 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cjht9b26s000hq2tbu145mri4" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习三" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/25/Python学习三/" class="article-date">
-  <time datetime="2017-12-25T15:16:20.222Z" itemprop="datePublished">2017-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Python学习三/">Python学习三</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>ASCII、Unicode、UTF-8</p>
-<h3 id="Python的字符串"><a href="#Python的字符串" class="headerlink" title="Python的字符串"></a>Python的字符串</h3><p>Python 3版本中，字符串是以Unicode编码的，提供了<code>ord()</code>函数获取字符的整数表示，<code>chr()</code>函数把编码转换为对应的字符</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</span><br><span class="line"><span class="number">65</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</span><br><span class="line"><span class="number">20013</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</span><br><span class="line"><span class="string">'B'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">25991</span>)</span><br><span class="line"><span class="string">'文'</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cjht9b26a0007q2tbxqkm6wig" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Python学习二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/25/Python学习二/" class="article-date">
-  <time datetime="2017-12-25T13:18:09.807Z" itemprop="datePublished">2017-12-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/25/Python学习二/">Python学习二</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = input()</span><br><span class="line">print(<span class="string">'Hello,'</span>, name)</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>整形：精确，没有大小限制， / 除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.3333333333333335</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure>
-<p>还有一种除法是 // ，称为地板除，两个整数的除法仍然是整数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> // <span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>取余：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> % <span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>浮点数：有四舍五入，没有大小限制</p>
-<p>字符串：转义字符  \ ，\n表示换行，\t表示制表符，\表示字符\。</p>
-<p>布尔值：只有True、False，布尔值可以用and（与）、or（或）和not（非）运算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">'adult'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'teenager'</span>)</span><br></pre></td></tr></table></figure>
-<p>空值：None</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>可以是任意数据类型，必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
-<p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量就是不能变的变量，通常用全部大写的变量名表示常量</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cjht9b26h000aq2tbu68sv440" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/26/Python学习四/" data-id="cji1w4a4g000g5iksn4tbyj7h" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -673,7 +696,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -686,6 +709,14 @@
       <ul>
         
           <li>
+            <a href="/2018/06/05/WKWebView使用与JS交互/">WKWebView使用与JS交互</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/定时器内存泄漏/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/29/UICollectionView自定义布局/">UICollectionView自定义布局</a>
           </li>
         
@@ -695,14 +726,6 @@
         
           <li>
             <a href="/2018/04/28/Texture(ASDK)学习/">Texture(ASDK)学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/26/ReactiveCocoa学习/">ReactiveCocoa学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/02/CoreText/">CoreText学习记录</a>
           </li>
         
       </ul>

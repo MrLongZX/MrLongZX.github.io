@@ -62,6 +62,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Python学习三" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/Python学习三/" class="article-date">
+  <time datetime="2017-12-25T15:16:20.222Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/25/Python学习三/">Python学习三</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>ASCII、Unicode、UTF-8</p>
+<h3 id="Python的字符串"><a href="#Python的字符串" class="headerlink" title="Python的字符串"></a>Python的字符串</h3><p>Python 3版本中，字符串是以Unicode编码的，提供了<code>ord()</code>函数获取字符的整数表示，<code>chr()</code>函数把编码转换为对应的字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'A'</span>)</span><br><span class="line"><span class="number">65</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ord(<span class="string">'中'</span>)</span><br><span class="line"><span class="number">20013</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">66</span>)</span><br><span class="line"><span class="string">'B'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>chr(<span class="number">25991</span>)</span><br><span class="line"><span class="string">'文'</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/25/Python学习三/" data-id="cji1w4a3q00045iksr32jrtjv" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Python学习二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/Python学习二/" class="article-date">
+  <time datetime="2017-12-25T13:18:09.807Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/25/Python学习二/">Python学习二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = input()</span><br><span class="line">print(<span class="string">'Hello,'</span>, name)</span><br></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>整形：精确，没有大小限制， / 除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.3333333333333335</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">9</span> / <span class="number">3</span></span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure>
+<p>还有一种除法是 // ，称为地板除，两个整数的除法仍然是整数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> // <span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>取余：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">10</span> % <span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>浮点数：有四舍五入，没有大小限制</p>
+<p>字符串：转义字符  \ ，\n表示换行，\t表示制表符，\表示字符\。</p>
+<p>布尔值：只有True、False，布尔值可以用and（与）、or（或）和not（非）运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">'adult'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'teenager'</span>)</span><br></pre></td></tr></table></figure>
+<p>空值：None</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>可以是任意数据类型，必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
+<p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量就是不能变的变量，通常用全部大写的变量名表示常量</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/25/Python学习二/" data-id="cji1w4a3z00085iks9oqgiawo" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python学习一" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/24/Python学习一/" class="article-date">
@@ -92,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cjht9b2680005q2tbs81kg9i4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/Python学习一/" data-id="cji1w4a3v00055iks18f618fi" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -129,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cjht9b27m000xq2tbuvb1t5g0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/24/日期比较/" data-id="cji1w4a59000x5iksk8pje2bv" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -171,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cjht9b2610003q2tb19h5gxfp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/Mac软件/" data-id="cji1w4a3p00035iksrfaw82ao" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -210,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cjht9b27h000vq2tb7ipbla4t" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/桌面切换快捷键/" data-id="cji1w4a5c000z5iksvlrwo14i" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -255,7 +345,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cjht9b27r0010q2tbz6o6osrs" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/23/键盘遮挡问题/" data-id="cji1w4a5e00105iks7hnr08ca" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -310,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cjht9b27g000uq2tb1saakc9r" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/搭建博客过程记录/" data-id="cji1w4a5a000y5iksodqikyyk" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -352,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cjht9b27i000wq2tbf8l37kih" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/我的第一篇博客/" data-id="cji1w4a55000w5ikstxjtalt6" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -385,7 +475,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -398,6 +488,14 @@
       <ul>
         
           <li>
+            <a href="/2018/06/05/WKWebView使用与JS交互/">WKWebView使用与JS交互</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/定时器内存泄漏/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/29/UICollectionView自定义布局/">UICollectionView自定义布局</a>
           </li>
         
@@ -407,14 +505,6 @@
         
           <li>
             <a href="/2018/04/28/Texture(ASDK)学习/">Texture(ASDK)学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/26/ReactiveCocoa学习/">ReactiveCocoa学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/02/CoreText/">CoreText学习记录</a>
           </li>
         
       </ul>
